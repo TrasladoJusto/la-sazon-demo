@@ -8,28 +8,28 @@ const dishes = [
 
 export function MenuCarousel() {
   return (
-    <section className="py-xxl bg-surface-container-lowest overflow-hidden" id="menu">
-      <div className="px-margin-desktop max-w-screen-2xl mx-auto mb-16">
-        <h2 className="reveal font-headline-lg text-headline-lg text-on-surface">Nuestra carta</h2>
+    <section className="py-xxl bg-surface-container-low overflow-hidden" id="menu">
+      <div className="px-margin-desktop max-w-screen-2xl mx-auto mb-xl reveal">
+        <h2 className="font-headline-lg text-headline-lg text-on-surface">Nuestra carta</h2>
+        <div className="h-px w-24 bg-primary mt-sm" />
       </div>
-      <div className="flex overflow-x-auto no-scrollbar gap-gutter px-margin-desktop pb-12 cursor-grab active:cursor-grabbing" id="menu-scroll">
+      <div className="flex gap-lg overflow-x-auto custom-scrollbar pb-xl px-margin-desktop">
         {dishes.map((dish, i) => (
-          <div key={i} className="flex-none w-[350px] luxury-card bg-surface p-4 reveal">
-            <div className="h-[400px] overflow-hidden mb-6">
-              <img src={dish.src} alt={dish.name} className="w-full h-full object-cover" loading="lazy" />
+          <div key={i} className="min-w-[320px] md:min-w-[380px] card-interactive group reveal">
+            <div className="aspect-[4/5] overflow-hidden mb-md">
+              <img src={dish.src} alt={dish.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
             </div>
-            <div className="space-y-4">
-              <div className="flex justify-between items-start">
-                <h3 className="font-headline-md text-headline-md text-primary">{dish.name}</h3>
-                <span className="font-mono text-label-sm text-primary">{dish.price}</span>
+            <div className="flex justify-between items-end px-2">
+              <div>
+                <h3 className="font-headline-md text-headline-md text-on-surface uppercase tracking-wider">{dish.name}</h3>
+                <p className="font-body-md text-label-sm text-secondary">{dish.desc}</p>
               </div>
-              <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">{dish.desc}</p>
-              <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-tighter border border-outline-variant text-outline-variant font-label-sm">{dish.tag}</span>
+              <span className="font-mono text-primary text-lg">{dish.price}</span>
             </div>
           </div>
         ))}
       </div>
-      <div className="text-center mt-12">
+      <div className="text-center mt-xl">
         <a className="font-label-sm text-label-sm text-on-surface border border-primary/20 px-12 py-4 hover:border-primary transition-all duration-300 uppercase tracking-widest" href="/menu">Ver carta completa</a>
       </div>
     </section>

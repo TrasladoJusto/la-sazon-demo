@@ -8,8 +8,8 @@ const events = [
 export function EventsSection() {
   return (
     <section className="py-xxl px-margin-desktop max-w-screen-2xl mx-auto" id="eventos">
-      <div className="text-center mb-16">
-        <h2 className="reveal font-headline-lg text-headline-lg text-on-surface">Eventos privados</h2>
+      <div className="text-center mb-16 reveal">
+        <h2 className="font-headline-lg text-headline-lg text-on-surface">Eventos privados</h2>
         <div className="w-20 h-[1px] bg-primary mx-auto mt-4" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">

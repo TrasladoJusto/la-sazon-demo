@@ -1,8 +1,8 @@
 export function ExperienceSection() {
   return (
-    <section className="py-xxl px-margin-desktop max-w-screen-2xl mx-auto" id="experiencia">
+    <section className="py-xxl px-margin-desktop max-w-screen-2xl mx-auto overflow-hidden" id="experiencia">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-xxl items-center">
-        <div className="reveal relative h-[600px] overflow-hidden group">
+        <div className="reveal relative h-[500px] md:h-[650px] overflow-hidden group">
           <div className="absolute inset-0 bg-background-dark/20 z-10" />
           <img
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -20,7 +20,12 @@ export function ExperienceSection() {
             <br /><br />
             Nuestra filosofía se basa en el respeto absoluto al producto de temporada, elevándolo mediante técnicas clásicas y una visión contemporánea que honra el terroir madrileño y sus alrededores.
           </p>
-          <a className="inline-block font-label-sm text-label-sm text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors uppercase tracking-widest" href="#menu">DESCUBRIR EL MENÚ</a>
+          <p className="font-headline-md italic text-primary/80 border-l border-primary pl-md">
+            &ldquo;Respetamos los ciclos de la naturaleza para ofrecer una experiencia que trasciende lo culinario.&rdquo;
+          </p>
+          <a className="mt-xl inline-block font-label-sm text-label-sm text-primary tracking-[0.2em] uppercase border-b border-primary/30 hover:border-primary pb-2 transition-all" href="#menu">
+            Nuestra Historia
+          </a>
         </div>
       </div>
     </section>

@@ -1,49 +1,55 @@
 export function ReservationsSection() {
   return (
-    <section className="py-xxl px-margin-desktop relative" id="reservas">
-      <div className="max-w-4xl mx-auto bg-surface-container border border-primary/20 p-xxl relative z-10 reveal shadow-2xl">
-        <div className="text-center mb-12">
-          <h2 className="font-headline-lg text-headline-lg text-primary uppercase tracking-widest">Reservar mesa</h2>
-          <p className="font-label-sm text-label-sm text-on-surface-variant mt-4 uppercase">Disponibilidad exclusiva para cenas y eventos</p>
-        </div>
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-          <div className="space-y-2">
-            <label className="font-label-sm text-label-sm text-primary uppercase">Fecha</label>
-            <input className="w-full bg-transparent border-b border-outline-variant focus:border-primary transition-colors text-on-surface font-body-md py-2 focus:ring-0" type="date" />
+    <section className="relative flex items-center justify-center py-xxl min-h-[800px]" id="reservas">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          alt="Atmospheric dining"
+          className="w-full h-full object-cover brightness-[0.2]"
+          src="/images/restaurant-interior.jpg"
+        />
+      </div>
+
+      {/* Form Card */}
+      <div className="relative z-10 w-full max-w-[650px] px-margin-mobile reveal">
+        <div className="bg-surface-container-high/80 backdrop-blur-2xl p-xl border border-primary/10 shadow-2xl">
+          <h2 className="font-headline-lg text-headline-lg text-primary text-center mb-xl">Reserva tu Mesa</h2>
+          <form className="space-y-lg">
+            <div className="grid grid-cols-2 gap-lg">
+              <div className="space-y-sm">
+                <label className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block">Fecha</label>
+                <input className="w-full bg-transparent border-b border-outline text-on-surface py-sm focus:border-primary focus:ring-0 outline-none transition-colors" type="date" />
+              </div>
+              <div className="space-y-sm">
+                <label className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block">Hora</label>
+                <select className="w-full bg-transparent border-b border-outline text-on-surface py-sm focus:border-primary focus:ring-0 outline-none transition-colors">
+                  <option className="bg-surface">20:00</option>
+                  <option className="bg-surface">20:30</option>
+                  <option className="bg-surface">21:00</option>
+                  <option className="bg-surface">21:30</option>
+                </select>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-lg">
+              <div className="space-y-sm">
+                <label className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block">Comensales</label>
+                <input className="w-full bg-transparent border-b border-outline text-on-surface py-sm focus:border-primary focus:ring-0 outline-none transition-colors placeholder:text-text-muted-dark" max="10" min="1" placeholder="2" type="number" />
+              </div>
+              <div className="space-y-sm">
+                <label className="font-label-sm text-label-sm text-secondary uppercase tracking-widest block">Ocasión</label>
+                <input className="w-full bg-transparent border-b border-outline text-on-surface py-sm focus:border-primary focus:ring-0 outline-none transition-colors placeholder:text-text-muted-dark" placeholder="Aniversario, Cena..." type="text" />
+              </div>
+            </div>
+            <button className="w-full bg-primary py-md text-background-dark font-body-md font-medium tracking-widest uppercase hover:brightness-110 transition-all mt-xl" type="submit">
+              Confirmar Disponibilidad
+            </button>
+          </form>
+          <div className="mt-lg text-center">
+            <a className="flex items-center justify-center gap-2 text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/34912345678" target="_blank" rel="noopener noreferrer">
+              <span className="material-symbols-outlined text-[18px]" aria-hidden="true">chat</span>
+              Consulta rápida vía WhatsApp
+            </a>
           </div>
-          <div className="space-y-2">
-            <label className="font-label-sm text-label-sm text-primary uppercase">Hora</label>
-            <input className="w-full bg-transparent border-b border-outline-variant focus:border-primary transition-colors text-on-surface font-body-md py-2 focus:ring-0" type="time" />
-          </div>
-          <div className="space-y-2">
-            <label className="font-label-sm text-label-sm text-primary uppercase">Comensales</label>
-            <select className="w-full bg-transparent border-b border-outline-variant focus:border-primary transition-colors text-on-surface font-body-md py-2 focus:ring-0">
-              <option className="bg-surface">2 Personas</option>
-              <option className="bg-surface">4 Personas</option>
-              <option className="bg-surface">6 Personas</option>
-              <option className="bg-surface">Grupo (+8)</option>
-            </select>
-          </div>
-          <div className="space-y-2">
-            <label className="font-label-sm text-label-sm text-primary uppercase">Ocasión</label>
-            <select className="w-full bg-transparent border-b border-outline-variant focus:border-primary transition-colors text-on-surface font-body-md py-2 focus:ring-0">
-              <option className="bg-surface">Cena romántica</option>
-              <option className="bg-surface">Negocios</option>
-              <option className="bg-surface">Celebración</option>
-              <option className="bg-surface">Chef&apos;s Table</option>
-            </select>
-          </div>
-          <div className="col-span-full space-y-2">
-            <label className="font-label-sm text-label-sm text-primary uppercase">Preferencias</label>
-            <textarea className="w-full bg-transparent border-b border-outline-variant focus:border-primary transition-colors text-on-surface font-body-md py-2 focus:ring-0 placeholder:text-outline-variant" placeholder="Alergias o solicitudes especiales..." rows={3} />
-          </div>
-          <button className="col-span-full bg-primary-container text-on-primary-container py-5 font-label-sm text-label-sm uppercase tracking-[0.2em] hover:bg-primary transition-all duration-500 mt-8" type="submit">Confirmar reserva</button>
-        </form>
-        <div className="mt-8 text-center">
-          <a className="flex items-center justify-center gap-2 text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/34912345678" target="_blank" rel="noopener noreferrer">
-            <span className="material-symbols-outlined text-[18px]" aria-hidden="true">chat</span>
-            Consulta rápida vía WhatsApp
-          </a>
         </div>
       </div>
     </section>
