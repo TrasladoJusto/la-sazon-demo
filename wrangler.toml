@@ -1,0 +1,10 @@
+name = "provenance-restaurant"
+main = "dist/worker.js"
+compatibility_date = "2024-01-01"
+
+[build]
+command = "npm run build"
+
+[[routes]]
+pattern = "provenance-restaurant.asahel.workers.dev/*"
+zone_id = ""
