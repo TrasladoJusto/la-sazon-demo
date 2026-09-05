@@ -185,19 +185,6 @@ body { background-color: #000000; color: #e9e1d8; overflow-x: hidden; -webkit-fo
 .testimonial-card { border: 1px solid rgba(229, 196, 118, 0.15); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 .testimonial-card:hover { border-color: rgba(229, 196, 118, 0.4); background-color: rgba(22, 19, 14, 0.5); }
 
-/* Mobile menu */
-@keyframes slide-down {
-  from { opacity: 0; transform: translateY(-10px); max-height: 0; }
-  to { opacity: 1; transform: translateY(0); max-height: 500px; }
-}
-.animate-slide-down { animation: slide-down 0.3s ease-out forwards; overflow: hidden; }
-
-/* Divider */
-.gold-divider { background: linear-gradient(90deg, transparent, rgba(200, 169, 94, 0.2), transparent); }
-
-/* Accessibility */
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
-
 /* Focus styles */
 *:focus-visible { outline: 2px solid #e5c476; outline-offset: 2px; }
 
@@ -369,23 +356,11 @@ body { background-color: #000000; color: #e9e1d8; overflow-x: hidden; -webkit-fo
   border-color: rgba(200, 169, 94, 0.5);
 }
 
-/* Card Reveal (staggered) */
-.card-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
-.card-reveal.active { opacity: 1; transform: translateY(0); }
-
 /* Gold Border 3-stop gradient text */
 .gold-gradient-text-3 {
   background: linear-gradient(135deg, #e4c375 0%, #c8a95e 50%, #997c3d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* Hide on scroll */
-.hide-on-scroll {
-  transition: transform 0.3s ease;
-}
-.hide-on-scroll.hidden-up {
-  transform: translateY(-100%);
 }
 
 /* Selection color */
@@ -406,10 +381,6 @@ body { background-color: #000000; color: #e9e1d8; overflow-x: hidden; -webkit-fo
   position: absolute;
   z-index: 0;
 }
-
-/* Header height transition */
-.header-shrink { height: 4rem; }
-.header-full { height: 5rem; }
 
 /* Breadcrumb */
 .breadcrumb-item + .breadcrumb-item::before {

@@ -26,8 +26,8 @@ export function ReservationsSection() {
             <span className="material-symbols-outlined text-primary text-[32px] mb-4 block group-hover:scale-110 transition-transform" aria-hidden="true">restaurant</span>
             <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Cena Privada</h3>
             <p className="font-body-sm text-on-surface-variant mb-4">Hasta 12 comensales en nuestra sala íntima</p>
-            <Link href="/reservar" className="font-label-sm text-label-sm text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors uppercase tracking-widest">
-              Reservar →
+            <Link href="/reservar" className="inline-block font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors uppercase tracking-widest">
+              Reservar
             </Link>
           </div>
 
@@ -35,8 +35,8 @@ export function ReservationsSection() {
             <span className="material-symbols-outlined text-primary text-[32px] mb-4 block group-hover:scale-110 transition-transform" aria-hidden="true">local_fire_department</span>
             <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Chef&apos;s Table</h3>
             <p className="font-body-sm text-on-surface-variant mb-4">Experiencia exclusiva junto a la cocina</p>
-            <Link href="/reservar" className="font-label-sm text-label-sm text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors uppercase tracking-widest">
-              Reservar →
+            <Link href="/reservar" className="inline-block font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors uppercase tracking-widest">
+              Reservar
             </Link>
           </div>
 
@@ -44,8 +44,8 @@ export function ReservationsSection() {
             <span className="material-symbols-outlined text-primary text-[32px] mb-4 block group-hover:scale-110 transition-transform" aria-hidden="true">groups</span>
             <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Evento Corporativo</h3>
             <p className="font-body-sm text-on-surface-variant mb-4">Espacios versátiles para eventos empresariales</p>
-            <Link href="/eventos" className="font-label-sm text-label-sm text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors uppercase tracking-widest">
-              Ver eventos →
+            <Link href="/eventos" className="inline-block font-label-sm text-label-sm text-primary hover:text-primary-container transition-colors uppercase tracking-widest">
+              Ver eventos
             </Link>
           </div>
         </div>
@@ -94,7 +94,7 @@ export function ReservationsSection() {
             </Link>
           </div>
           <div className="mt-6 text-center">
-            <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-label-sm text-on-surface-variant hover:text-primary transition-colors">
+            <a href="https://wa.me/34912345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-label-sm text-on-surface-variant hover:text-primary transition-colors">
               <span className="material-symbols-outlined text-[18px]" aria-hidden="true">chat</span>
               Consulta rápida vía WhatsApp
             </a>

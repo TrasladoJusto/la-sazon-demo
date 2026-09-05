@@ -14,9 +14,15 @@ export default function ContactoPage() {
     <>
       <Header />
       <main id="main-content" className="pt-20 md:pt-0">
-        <div className="px-margin-desktop max-w-screen-2xl mx-auto pt-8">
+        <div className="px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto pt-8">
           <Breadcrumb items={[{ label: "Inicio", href: "/" }, { label: "Contacto" }]} />
         </div>
+        <section className="py-xl md:py-xxl px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Encuéntranos</span>
+            <h1 className="font-display-lg text-display-lg text-on-surface mt-3 gold-gradient-text">Contacto</h1>
+          </div>
+        </section>
         <LocationSection />
         <TestimonialsSection />
       </main>

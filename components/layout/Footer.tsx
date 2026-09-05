@@ -15,7 +15,7 @@ export function Footer() {
 
   return (
     <footer className="bg-background-dark border-t border-primary/30 w-full">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-xxl w-full max-w-screen-2xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 px-margin-mobile md:px-margin-desktop py-12 md:py-xxl w-full max-w-screen-2xl mx-auto">
         {/* Column 1: Brand */}
         <div className="space-y-6">
           <div className="font-headline-md text-headline-md text-primary-fixed uppercase tracking-widest">PROVENANCE</div>
@@ -51,7 +51,7 @@ export function Footer() {
           <ul className="space-y-2">
             <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md nav-link-hover" href="/experiencia">Nuestra Historia</a></li>
             <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md nav-link-hover" href="/chef">El Chef</a></li>
-            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md nav-link-hover" href="/galeria">Bodega</a></li>
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md nav-link-hover" href="/menu">Bodega</a></li>
             <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md nav-link-hover" href="/galeria">Galería</a></li>
           </ul>
         </div>
@@ -103,9 +103,9 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="px-margin-desktop py-8 border-t border-outline-variant/10 text-center">
+      <div className="px-margin-mobile md:px-margin-desktop py-6 md:py-8 border-t border-outline-variant/10 text-center">
         <p className="font-label-sm text-label-sm text-on-surface-variant">
-          © 2025 PROVENANCE RESTAURANT. TODOS LOS DERECHOS RESERVADOS.
+          © {new Date().getFullYear()} PROVENANCE RESTAURANT. TODOS LOS DERECHOS RESERVADOS.
           <span className="sr-only"> All rights reserved.</span>
           <span className="mx-2 text-primary">·</span>
           <span className="text-primary-fixed/60">Crafted for Excellence</span>

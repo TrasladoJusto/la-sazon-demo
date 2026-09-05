@@ -13,7 +13,7 @@ export default function MenuPage() {
     <>
       <Header />
       <main id="main-content" className="pt-20 md:pt-0 grain-overlay">
-        <section className="py-xxl px-margin-desktop max-w-screen-2xl mx-auto" id="carta">
+        <section className="py-xxl px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto" id="carta">
           <Breadcrumb items={[{ label: "Inicio", href: "/" }, { label: "Nuestra Carta" }]} />
           <div className="text-center mb-16 mt-8">
             <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Experiencia Gastronómica</span>

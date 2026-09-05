@@ -43,7 +43,7 @@ export function ReservationForm() {
           <select id="comensales" className={fieldClass} required defaultValue="">
             <option value="" disabled className="bg-surface text-outline-variant">Seleccionar</option>
             {[1,2,3,4,5,6,7,8,9,10].map(n => <option key={n} className="bg-surface">{n} {n === 1 ? "persona" : "personas"}</option>)}
-            <option className="bg-surface">Grupo (+10</option>
+            <option className="bg-surface">Grupo (+10)</option>
          </select>
        </div>
         <div>
