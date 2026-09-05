@@ -1,52 +1,66 @@
 "use client";
-import { SectionReveal } from "@/components/animations/ScrollReveal";
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 export function LocationSection() {
   return (
-    <section className="py-xxl bg-surface-container-lowest" id="ubicacion">
-      <div className="px-margin-desktop max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-xxl items-start">
-        <div className="relative w-full aspect-square md:aspect-auto md:h-[600px] overflow-hidden group reveal">
-          <div className="absolute inset-0 border border-primary/20 transition-colors duration-500 group-hover:border-primary/40 z-10 pointer-events-none"></div>
-          <img className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 transition-all duration-700" src="/images/map-location.jpg" alt="Madrid map" data-icon="map" data-alt="Madrid map" />
+    <section className="py-xl md:py-xxl bg-surface-container-lowest" id="ubicacion">
+      <div className="px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+        {/* Map */}
+        <div className="relative w-full aspect-square md:aspect-auto md:h-[500px] overflow-hidden group">
+          <div className="absolute inset-0 border border-primary/15 transition-colors duration-500 group-hover:border-primary/30 z-10 pointer-events-none" />
+          <img className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 transition-all duration-700" src="/images/map-location.jpg" alt="Mapa de Madrid" loading="lazy" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20">
-            <span className="material-symbols-outlined text-primary text-[48px] drop-shadow-[0_0_10px_rgba(200,169,94,0.5)] animate-pulse" data-icon="location_on" data-alt="location pin">location_on</span>
-            <div className="bg-surface-container-highest/90 backdrop-blur-md px-md py-xs mt-sm border border-primary/30">
+            <span className="material-symbols-outlined text-primary text-[40px] drop-shadow-[0_0_10px_rgba(200,169,94,0.5)] animate-pulse" aria-hidden="true">location_on</span>
+            <div className="bg-surface-container/90 backdrop-blur-sm px-4 py-2 mt-2 border border-primary/30">
               <p className="font-label-sm text-label-sm text-primary uppercase tracking-tighter">Provenance Madrid</p>
             </div>
           </div>
         </div>
-        <div className="reveal space-y-xl">
+
+        {/* Info */}
+        <div className="space-y-8">
           <div>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Dónde encontrarnos</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant">Calle de la Memoria, 12. Madrid, España.</p>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-3">Dónde encontrarnos</h2>
+            <p className="font-body-lg text-on-surface-variant">Calle de la Memoria, 12. Madrid, España.</p>
           </div>
-          <div className="space-y-md">
-            <h3 className="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary/70">Horario de Apertura</h3>
-            <table className="w-full text-left font-body-md text-body-md border-collapse">
-              <tbody className="divide-y divide-outline-variant/5">
-                <tr><td className="py-md text-on-surface-variant">Martes - Jueves</td><td className="py-md text-on-surface">13:30 - 15:30 / 20:30 - 23:00</td></tr>
-                <tr><td className="py-md text-on-surface-variant">Viernes - Sábado</td><td className="py-md text-on-surface">13:30 - 15:30 / 20:00 - 00:00</td></tr>
-                <tr><td className="py-md text-on-surface-variant italic">Domingo - Lunes</td><td className="py-md text-primary/60 italic">Cerrado</td></tr>
-              </tbody>
-            </table>
+
+          <div>
+            <h3 className="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary/70 mb-4">Horario de Apertura</h3>
+            <div className="space-y-3">
+              <div className="flex justify-between border-b border-outline/10 pb-3">
+                <span className="font-body-md text-on-surface-variant">Martes - Jueves</span>
+                <span className="font-body-md text-on-surface">13:30 - 15:30 / 20:30 - 23:00</span>
+              </div>
+              <div className="flex justify-between border-b border-outline/10 pb-3">
+                <span className="font-body-md text-on-surface-variant">Viernes - Sábado</span>
+                <span className="font-body-md text-on-surface">13:30 - 15:30 / 20:00 - 00:00</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="font-body-md text-on-surface-variant italic">Domingo - Lunes</span>
+                <span className="font-body-md text-primary/60 italic">Cerrado</span>
+              </div>
+            </div>
           </div>
-          <div className="space-y-lg">
-            <div className="flex flex-col md:flex-row gap-lg">
-              <div className="flex flex-col">
-                <span className="font-label-sm text-label-sm text-primary/70 uppercase mb-xs">Teléfono</span>
+
+          <div className="space-y-4">
+            <div className="flex flex-col md:flex-row gap-6">
+              <div>
+                <span className="font-label-sm text-label-sm text-primary/70 uppercase mb-1 block">Teléfono</span>
                 <a className="font-headline-md text-headline-md text-on-surface hover:text-primary transition-colors" href="tel:+34912345678">+34 912 345 678</a>
               </div>
-              <div className="flex flex-col">
-                <span className="font-label-sm text-label-sm text-primary/70 uppercase mb-xs">Email</span>
-                <a className="font-body-lg text-body-lg text-on-surface hover:text-primary transition-colors border-b border-primary/20 pb-1" href="mailto:reservas@provenance.com">reservas@provenance.com</a>
+              <div>
+                <span className="font-label-sm text-label-sm text-primary/70 uppercase mb-1 block">Email</span>
+                <a className="font-body-lg text-on-surface hover:text-primary transition-colors border-b border-primary/20 pb-1" href="mailto:reservas@provenance.com">reservas@provenance.com</a>
               </div>
             </div>
-            <div className="pt-md">
-              <div className="gold-divider h-[1px] w-full mb-md" />
-              <p className="font-label-md text-label-md text-primary/40 uppercase tracking-widest text-center md:text-left italic">Solo con reserva previa para garantizar la experiencia.</p>
-              <Button variant="primary" size="lg" href="#reservas">Solicitar Mesa</Button>
-            </div>
+          </div>
+
+          <div className="pt-4">
+            <div className="bg-gradient-to-r from-transparent via-primary/20 to-transparent h-[1px] mb-4" />
+            <p className="font-label-sm text-primary/40 uppercase tracking-widest text-center md:text-left italic mb-4">Solo con reserva previa para garantizar la experiencia.</p>
+            <Link href="/reservar" className="inline-flex items-center justify-center bg-primary-container text-on-primary-container px-6 py-3 font-label-sm text-label-sm uppercase tracking-[0.15em] hover:bg-primary transition-all duration-300 shadow-[0_4px_14px_0_rgba(200,169,94,0.3)] hover:shadow-[0_6px_20px_0_rgba(200,169,94,0.4)]">
+              Solicitar Mesa
+            </Link>
           </div>
         </div>
       </div>

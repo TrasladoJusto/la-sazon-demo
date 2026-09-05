@@ -1,47 +1,48 @@
 "use client";
 import Link from "next/link";
-import { SectionReveal } from "@/components/animations/ScrollReveal";
-import { Button } from "@/components/ui/Button";
 
 export function ExperienceSection() {
   return (
-    <section className="py-xxl px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto" id="experiencia">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-xl md:gap-xxl items-center">
-        {/* Image with offset decorative border */}
-        <div className="reveal relative h-[400px] md:h-[600px] overflow-hidden group order-2 md:order-1">
-          <div className="absolute -inset-4 border border-primary/20 translate-x-2 translate-y-2 z-0 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1" />
+    <section className="py-xl md:py-xxl px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto bg-surface" id="experiencia">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+        {/* Image with decorative elements */}
+        <div className="relative h-[350px] md:h-[550px] overflow-hidden group">
+          <div className="absolute -inset-3 border border-primary/15 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1" />
           <img
-            className="relative w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-10"
             src="/images/chef-action.jpg"
-            alt="Cinematic kitchen shot"
-            data-icon="photo_camera"
-            data-alt="Cinematic kitchen shot of a Michelin-star kitchen"
+            alt="Cocina de PROVENANCE"
+            className="relative w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
           />
-          <div className="absolute inset-0 bg-background-dark/20 z-20"></div>
-      </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background-dark/40 to-transparent" />
+          {/* Floating badge */}
+          <div className="absolute bottom-6 left-6 bg-surface-container/90 backdrop-blur-sm px-4 py-2 border border-primary/20">
+            <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest">Desde 2009</span>
+          </div>
+        </div>
+
         {/* Content */}
-        <div className="reveal space-y-6 md:space-y-8 px-0 md:px-lg order-1 md:order-2">
+        <div className="space-y-6">
           <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Concepto</span>
           <h2 className="font-headline-lg text-headline-lg text-on-surface">Nuestra provenancia</h2>
-          <div className="w-20 h-[1px] bg-primary"></div>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+          <div className="w-16 h-[1px] bg-primary" />
+          <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
             Entendemos la cocina como un diálogo honesto con la tierra. Cada ingrediente que llega a PROVENANCE posee una historia propia, una trazabilidad impecable y un carácter forjado por su origen.
-        </p>
-          <p className="font-body-md text-body-md text-on-surface-variant/80 max-w-lg leading-relaxed hidden md:block">
+          </p>
+          <p className="font-body-md text-on-surface-variant/70 leading-relaxed">
             Nuestra filosofía se basa en el respeto absoluto al producto de temporada, elevándolo mediante técnicas clásicas y una visión contemporánea que honra el terroir madrileño.
-        </p>
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-2">
-            <Button variant="primary" size="md" href="/experiencia">CONOCER MÁS</Button>
-            <Link
-              href="/experiencia"
-              className="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors uppercase tracking-widest"
-            >
-              <span className="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+            <Link href="/experiencia" className="inline-flex items-center justify-center bg-primary-container text-on-primary-container px-6 py-3 font-label-sm text-label-sm uppercase tracking-[0.15em] hover:bg-primary transition-all duration-300 shadow-[0_4px_14px_0_rgba(200,169,94,0.3)] hover:shadow-[0_6px_20px_0_rgba(200,169,94,0.4)]">
+              Descubrir
+            </Link>
+            <Link href="/experiencia" className="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors uppercase tracking-widest self-center">
               Nuestra filosofía
-          </Link>
+              <span className="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }
