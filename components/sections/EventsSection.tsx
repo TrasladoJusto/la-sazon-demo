@@ -18,8 +18,8 @@ export function EventsSection() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
         {eventTypes.map((event, index) => (
-          <div key={event.title} className="reveal luxury-card p-8 text-center space-y-6">
-            <img className="w-16 h-16 mx-auto opacity-80" src={event.src} alt={event.title} />
+          <div key={event.title} className="reveal luxury-card p-8 text-center space-y-6 event-card-hover">
+            <img className="w-16 h-16 mx-auto opacity-80" src={event.src} alt={event.title} data-icon="event" data-alt={event.title} />
             <h3 className="font-headline-md text-headline-md text-primary">{event.title}</h3>
             <p className="font-body-md text-body-md text-on-surface-variant">{event.desc}</p>
             <Button variant="ghost" size="sm" href="#">Solicitar</Button>

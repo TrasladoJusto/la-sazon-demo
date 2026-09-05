@@ -48,7 +48,7 @@ export function Footer() {
       </div>
 
       <div className="px-margin-desktop py-8 border-t border-outline-variant/10 text-center">
-        <p className="font-label-sm text-label-sm text-on-surface-variant">© 2025 PROVENANCE RESTAURANT. TODOS LOS DERECHOS RESERVADOS.</p>
+        <p className="font-label-sm text-label-sm text-on-surface-variant">© 2025 PROVENANCE RESTAURANT. TODOS LOS DERECHOS RESERVADOS.<span className="sr-only"> All rights reserved.</span></p>
       </div>
     </footer>
   );

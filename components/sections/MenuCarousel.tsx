@@ -18,9 +18,9 @@ export function MenuCarousel() {
       </div>
       <div className="flex overflow-x-auto no-scrollbar gap-gutter px-margin-desktop pb-12 cursor-grab active:cursor-grabbing" id="menu-scroll">
         {dishes.map((dish, index) => (
-          <div key={index} className="flex-none w-[350px] luxury-card bg-surface p-4 reveal">
+          <div key={index} className="flex-none w-[350px] luxury-card bg-surface p-4 reveal card-container card-interactive" data-category={dish.tag.toLowerCase()}>
             <div className="h-[400px] overflow-hidden mb-6">
-              <img src={dish.src} alt={dish.name} className="w-full h-full object-cover" />
+              <img src={dish.src} alt={dish.name} className="w-full h-full object-cover card-zoom-image" data-icon="restaurant" data-alt={dish.name} />
             </div>
             <div className="space-y-4">
               <div className="flex justify-between items-start">

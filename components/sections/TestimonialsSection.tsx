@@ -23,8 +23,8 @@ export function TestimonialsSection() {
   return (
     <section className="py-xxl overflow-hidden" id="testimonios">
       <div className="px-margin-desktop max-w-4xl mx-auto text-center reveal">
-        <span className="material-symbols-outlined text-primary text-[64px] mb-8" data-icon="format_quote">format_quote</span>
-        <div className="relative">
+        <span className="material-symbols-outlined text-primary text-[64px] mb-8" data-icon="format_quote" data-alt="quote mark">format_quote</span>
+        <div className="relative group">
           <div className="flex gap-lg overflow-x-auto hide-scrollbar snap-x snap-mandatory" ref={sliderRef} id="testimonial-slider">
             {testimonials.map((t, index) => (
               <div key={index} className="min-w-full md:min-w-[calc(33.333%-16px)] snap-center testimonial-card bg-surface p-lg md:p-xl flex flex-col justify-between h-full min-h-[400px]">
@@ -40,17 +40,17 @@ export function TestimonialsSection() {
             ))}
           </div>
           {/* Navigation Arrows */}
-          <button className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full opacity-0 group-hover:translate-x-2 md:group-hover:-translate-x-12 group-hover:opacity-100 transition-all duration-500 z-10 text-primary p-2" onClick={() => scrollTo(Math.max(0, current - 1))}>
-            <span className="material-symbols-outlined text-[40px]">chevron_left</span>
+          <button className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full opacity-0 group-hover:translate-x-2 md:group-hover:-translate-x-12 group-hover:opacity-100 transition-all duration-500 z-10 text-primary p-2" onClick={() => scrollTo(Math.max(0, current - 1))} aria-label="Previous testimonial">
+            <span className="material-symbols-outlined text-[40px]" data-icon="chevron_left" data-alt="previous">chevron_left</span>
           </button>
-          <button className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full opacity-0 group-hover:-translate-x-2 md:group-hover:translate-x-12 group-hover:opacity-100 transition-all duration-500 z-10 text-primary p-2" onClick={() => scrollTo(Math.min(testimonials.length - 1, current + 1))}>
-            <span className="material-symbols-outlined text-[40px]">chevron_right</span>
+          <button className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full opacity-0 group-hover:-translate-x-2 md:group-hover:translate-x-12 group-hover:opacity-100 transition-all duration-500 z-10 text-primary p-2" onClick={() => scrollTo(Math.min(testimonials.length - 1, current + 1))} aria-label="Next testimonial">
+            <span className="material-symbols-outlined text-[40px]" data-icon="chevron_right" data-alt="next">chevron_right</span>
           </button>
         </div>
         {/* Dot Indicators */}
         <div className="flex justify-center gap-4 mt-xl">
           {testimonials.map((_, index) => (
-            <button key={index} className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current ? "bg-primary w-4" : "bg-primary/20 hover:bg-primary/50"}`} onClick={() => scrollTo(index)} />
+            <button key={index} className={`w-2 h-2 rounded-full transition-all duration-300 ${index === current ? "bg-primary w-4" : "bg-primary/20 hover:bg-primary/50"}`} onClick={() => scrollTo(index)} data-index={index} aria-label={`Testimonial ${index + 1}`} />
           ))}
         </div>
       </div>
