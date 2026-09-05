@@ -40,7 +40,7 @@ export function ExperienciaEnhanced() {
       <section className="relative grid grid-cols-1 md:grid-cols-2 min-h-[90vh]" id="experiencia">
         <div className="reveal-on-scroll relative h-[400px] md:h-auto overflow-hidden">
           <img
-            src="https://lh3.googleusercontent.com/aida/AP1WRLuNAFTNyG07GQ17qKfd-_GnqR3UxPLPLSc1BL-sbkbyuN4-SFo3YAx8FSTz46IOHkHiH6Kv5JDphb1e1ea4AOE9UKF5_qLr2Z-VjgrMCTQDbS_V45E43VVuMHQ4PDB5HtvyjfWk_xPddZ_OiC1gqBd7TLQBSUdrSNXCli6YGtWkngn5SePHNCuIrlWIci07cjwWeBYFhXfmwDWGSufScMVV9J1d_EDn797czBpD4o2mJX34bMqZtfuy_GpJ"
+            src="/images/chef-action.jpg"
             alt="Cinematic kitchen shot"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
             data-icon="photo_camera"

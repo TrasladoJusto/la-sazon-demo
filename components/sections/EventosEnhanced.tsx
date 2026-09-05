@@ -6,22 +6,22 @@ const eventTypes = [
   {
     title: "Cenas privadas",
     desc: "Espacios íntimos para encuentros memorables de 12 a 50 comensales. Servicio personalizado y menú a medida.",
-    image: "https://lh3.googleusercontent.com/aida/AP1WRLu3wJTukypmLXyutSt_ykoNZW9MFrot0P9dKwxU4GRS3Ccd4TqNhe_uhKan6X_T83zQzwFAJyMaIy-yDCfJx-E2YvFUiXIB4al5wx8n5UT4p4upKPkzPElFCEii9uAtG5Cgc2mhWYBAXHPO8H531FvFD_Ov1uuomm2CBOnH5DiBDdLzdEhf7LMQy2VF51D2prQTuZfbEybqKcCl7U7pwfQ-ohU1F0B-4Yv-_RqMYHF9fdl9XOh-v_K9-UEC",
+    image: "/images/dish-seafood.jpg",
   },
   {
     title: "Eventos corporativos",
     desc: "Presentaciones, lanzamientos y networking empresarial con servicio audiovisual discreto y menús ejecutivos.",
-    image: "https://lh3.googleusercontent.com/aida/AP1WRLvNGFAhN-uyQfpDPNNVfLJRVz5r1mTlj1uJWMB_8LB3QRcGJoI43LL6lew6APzJ0Mj-yfzVLaL63GclhOwjywdZ1IoIcxB8oQuwZujN_W_OrGabsqytWoSLx11EAiE2WHECFKn_Ox5AHOLUZK2y4dQ00D4szADUB4TxnVcfs8SGc7BcxOrFqQ5LUfKBmHEZQMSHlgFkrUOwEfcChVAZWeb7vh_keNiYZdnIBgwZw_TMUBik18A-Z7hHgbhC",
+    image: "/images/dish-cocktail.jpg",
   },
   {
     title: "Buyout completo",
     desc: "Exclusividad absoluta del restaurante. El salón entero se transforma para su celebración más íntima o espectacular.",
-    image: "https://lh3.googleusercontent.com/aida/AP1WRLsW8JsPFu8d8dKSIJf7iOqaxG32bL4DQbYV71JMGNrTYuXWGvc_iFUpn6xLJNW4ao8h9Udj9D48zJ8ESJeQr1dfh0Hl05cAOFYNxHsPD64pjkThxGMpOqLOpA2donbh1PyXpcjkPkPvZhhkkhJZZJtAeZKEJb7CTGWZYeRDZFubHT6125sM-e1gXA3Os86tq6y3uQMIiYtMWiueedw2pV0W6Br0iMheDFr2nnhh7tlvhaVlwzaG8zrtR0yg",
+    image: "/images/event-dinner.jpg",
   },
   {
     title: "Experiencias a medida",
     desc: "Talleres sensoriales, catas a ciegas, maridajes exclusivos y recorridos por nuestra bodega privada.",
-    image: "https://lh3.googleusercontent.com/aida/AP1WRLsFnllbFSUH9xqiu2d18w1KOpgwRHgtdpT6ciH8mrJP55gyMGc_sZBSLfv8S3UOQO8daNi9xOrlCGQg9uGOeVWNU8JPiuNnrZq7NKRuD-UQv77mylpOC3VfWxwVNWFvidudsUxSnvJJ3_ah8z94AhxDzBFQEztVzg4SySl4uVK5EWb3oYCzxNtjYJqxfMebWDeME1hXl6iBNbz46_5qn0B281odYElRPIbG3FQljNeZ5Gr-eUODonZtSmqI",
+    image: "/images/wine-cellar.jpg",
   },
 ];
 
@@ -68,7 +68,7 @@ export function EventosEnhanced() {
       {/* Hero */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden" id="eventos">
         <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs_lHAB4muz6cDOo9lvynizkDTH1CgalcFeyKmsqkdiaR8WZgqobcLNrItKD7zq4_Mui0cwS3iRKZtIs7MRrzb9nLGR5WomfbNdAm8NDd1FWF42yf8GDEStVpaqh6X7ZUlT62bjBsuxoj3eAekczOCVQVrpVVdH6Kjbf9bm044sb4rcxdG0vo6rvTK1Od3xEPa1HKr3CgHdqhKux-EDAN3jYpVCEAJNXEML8R_265RYfhU0UjaB7HxHKu0W8oIQ7qgXB5xzt_11UQl"
+          src="/images/interior.jpg"
           alt="Eventos privados"
           className="absolute inset-0 w-full h-full object-cover"
           data-icon="celebration"

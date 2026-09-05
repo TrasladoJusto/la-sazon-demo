@@ -8,9 +8,9 @@ export function LocationSection() {
       <div className="px-margin-desktop max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-xxl items-start">
         <div className="relative w-full aspect-square md:aspect-auto md:h-[600px] overflow-hidden group reveal">
           <div className="absolute inset-0 border border-primary/20 transition-colors duration-500 group-hover:border-primary/40 z-10 pointer-events-none"></div>
-          <img className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJElJMDS1jt9mbdlZHUJh1ZbOHFTIARAqsRNvSsY6nAg6RlwbgeAO3SSBEsM5QUz68I9LnSznvpmR0oTqA2y7uHgCGgHMRBacw8vIA_CFi3WlpKZb8RpQJj5Aut--VprlP8VjGVOGIhY28A5m8wgavgcR37z5uAZCxmF78LvTjN1Tuzp18tNKUAGHjIWZPSy9M6T4i0fFsWLhD_fhBy0iICKtc2rnocK_hVfXOy9jPJvUVPg6icPRRJaoxJzKf9DVGiQ-zYAUkAtoU" alt="Madrid map" data-icon="map" data-alt="Madrid map" />
+          <img className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 transition-all duration-700" src="/images/map-location.jpg" alt="Madrid map" data-icon="map" data-alt="Madrid map" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20">
-            <span className="material-symbols-outlined text-primary text-[48px] drop-shadow-[0_0_10px_rgba(200,169,94,0.5)] animate-pulse" style={{ fontVariationSettings: { 'FILL': 1 } }} data-icon="location_on" data-alt="location pin">location_on</span>
+            <span className="material-symbols-outlined text-primary text-[48px] drop-shadow-[0_0_10px_rgba(200,169,94,0.5)] animate-pulse" data-icon="location_on" data-alt="location pin">location_on</span>
             <div className="bg-surface-container-highest/90 backdrop-blur-md px-md py-xs mt-sm border border-primary/30">
               <p className="font-label-sm text-label-sm text-primary uppercase tracking-tighter">Provenance Madrid</p>
             </div>

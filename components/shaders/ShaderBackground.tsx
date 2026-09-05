@@ -8,8 +8,9 @@ export function ShaderBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-    if (!gl) return;
+    const rawGl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+    if (!rawGl) return;
+    const gl = rawGl as WebGLRenderingContext;
 
     function syncSize() {
       const w = canvas!.clientWidth || 1280;
@@ -86,10 +87,10 @@ void main() {
     gl_FragColor = vec4(finalColor * 0.6, 1.0);
 }`;
 
-    function cs(type: number, src: string) {
-      const s = gl!.createShader(type);
-      gl!.shaderSource(s!, src);
-      gl!.compileShader(s!);
+    function cs(type: number, src: string): WebGLShader {
+      const s = gl.createShader(type)!;
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
       return s;
     }
 
@@ -123,11 +124,11 @@ void main() {
     let raf = 0;
     function render() {
       syncSize();
-      gl!.viewport(0, 0, canvas!.width, canvas!.height);
-      gl!.uniform1f(uTime, (performance.now() - start) / 1000);
-      gl!.uniform2f(uRes, canvas!.width, canvas!.height);
-      gl!.uniform2f(uMouse, mouseX, mouseY);
-      gl!.drawArrays(gl!.TRIANGLE_STRIP, 0, 4);
+      gl.viewport(0, 0, canvas!.width, canvas!.height);
+      gl.uniform1f(uTime, (performance.now() - start) / 1000);
+      gl.uniform2f(uRes, canvas!.width, canvas!.height);
+      gl.uniform2f(uMouse, mouseX, mouseY);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       raf = requestAnimationFrame(render);
     }
     render();

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { SectionReveal } from "@/components/animations/ScrollReveal";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export function Hero() {
@@ -67,32 +67,57 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden gold-mesh-bg" aria-labelledby="hero-title">
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }} aria-hidden="true" />
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden gold-mesh-bg" aria-labelledby="hero-title">
+      {/* Hero Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/interior.jpg"
+          alt="Luxury Provenance restaurant interior at twilight"
+          className="w-full h-full object-cover opacity-40"
+          data-icon="photo_camera"
+          data-alt="Luxury Provenance restaurant interior at twilight"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-background-dark/40 to-background-dark/80" />
+     </div>
+
+      {/* Particle Canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }} aria-hidden="true" />
+
+      {/* Hero Content */}
       <div className="relative z-10 w-full max-w-[1280px] px-margin-mobile md:px-margin-desktop text-center">
         {/* Tagline */}
         <div className="mb-sm opacity-0 translate-y-4 animate-[fadeInUp_1s_ease-out_forwards]">
           <span className="font-label-md text-label-md uppercase tracking-[0.4em] text-primary/80" data-icon="public" data-alt="brand tagline">
             Donde el origen define la excelencia
-          </span>
-        </div>
+         </span>
+       </div>
         {/* Main Heading */}
         <h1 id="hero-title" className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-xl gold-gradient-text tracking-tighter opacity-0 translate-y-4 animate-[fadeInUp_1s_ease-out_0.2s_forwards]">
           PROVENANCE
-        </h1>
+       </h1>
+        {/* Subtitle */}
+        <p className="font-body-lg text-body-lg text-on-surface-variant/80 max-w-2xl mx-auto mb-xl opacity-0 translate-y-4 animate-[fadeInUp_1s_ease-out_0.3s_forwards]">
+          Alta cocina de origen en el corazón de Madrid. Una experiencia gastronómica donde cada ingrediente cuenta una historia de procedencia y maestría.
+       </p>
         {/* Buttons Container */}
-        <div className="flex flex-col sm:flex-row gap-lg justify-center items-center mt-xl opacity-0 translate-y-4 animate-[fadeInUp_1s_ease-out_0.4s_forwards]">
-          <Button variant="primary" size="lg" href="#reservas">Reservar mesa</Button>
-          <Button variant="outline" size="lg" href="#experiencia">Ver experiencia</Button>
-        </div>
-      </div>
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-lg justify-center items-center mt-xl opacity-0 translate-y-4 animate-[fadeInUp_1s_ease-out_0.4s_forwards]">
+          <Link href="/reservar" className="inline-flex items-center justify-center font-label-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary bg-primary-container text-on-primary-container hover:bg-primary px-8 py-4 text-label-md min-h-[56px] shadow-[0_4px_14px_0_rgba(200,169,94,0.3)] hover:shadow-[0_6px_20px_0_rgba(200,169,94,0.4)] w-full sm:w-auto">
+            Reservar mesa
+         </Link>
+          <Link href="/experiencia" className="inline-flex items-center justify-center font-label-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary border border-primary text-primary hover:bg-primary/5 px-8 py-4 text-label-md min-h-[56px] w-full sm:w-auto">
+            Ver experiencia
+         </Link>
+       </div>
+     </div>
+
       {/* Animated Scroll Chevron */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-chevron opacity-60">
-        <span className="material-symbols-outlined text-primary text-[32px]" data-icon="keyboard_double_arrow_down" data-alt="scroll down">keyboard_double_arrow_down</span>
-      </div>
-      {/* Atmospheric Elements */}
-      <div className="absolute -left-20 top-1/4 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none" aria-hidden="true"></div>
-      <div className="absolute -right-20 bottom-1/4 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none" aria-hidden="true"></div>
-    </section>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-chevron opacity-60 z-10">
+        <span className="material-symbols-outlined text-primary text-[32px] md:text-[40px]" data-icon="keyboard_double_arrow_down" data-alt="scroll down">keyboard_double_arrow_down</span>
+     </div>
+
+      {/* Atmospheric Glow Elements */}
+      <div className="absolute -left-20 top-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none z-0" aria-hidden="true"></div>
+      <div className="absolute -right-20 bottom-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none z-0" aria-hidden="true"></div>
+   </section>
   );
 }

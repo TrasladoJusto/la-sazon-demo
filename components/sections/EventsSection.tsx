@@ -1,30 +1,93 @@
 "use client";
+import Link from "next/link";
 import { SectionReveal } from "@/components/animations/ScrollReveal";
-import { Button } from "@/components/ui/Button";
-
-const eventTypes = [
-  { title: "Cenas privadas", desc: "Espacios íntimos para encuentros memorables de 2 a 12 personas.", src: "https://lh3.googleusercontent.com/aida/AP1WRLu3wJTukypmLXyutSt_ykoNZW9MFrot0P9dKwxU4GRS3Ccd4TqNhe_uhKan6X_T83zQzwFAJyMaIy-yDCfJx-E2YvFUiXIB4al5wx8n5UT4p4upKPkzPElFCEii9uAtG5Cgc2mhWYBAXHPO8H531FvFD_Ov1uuomm2CBOnH5DiBDdLzdEhf7LMQy2VF51D2prQTuZfbEybqKcCl7U7pwfQ-ohU1F0B-4Yv-_RqMYHF9fdl9XOh-v_K9-UEC" },
-  { title: "Corporativos", desc: "Soluciones de alta gama para presentaciones y networking empresarial.", src: "https://lh3.googleusercontent.com/aida/AP1WRLvNGFAhN-uyQfpDPNNVfLJRVz5r1mTlj1uJWMB_8LB3QRcGJoI43LL6lew6APzJ0Mj-yfzVLaL63GclhOwjywdZ1IoIcxB8oQuwZujN_W_OrGabsqytWoSLx11EAiE2WHECFKn_Ox5AHOLUZK2y4dQ00D4szADUB4TxnVcfs8SGc7BcxOrFqQ5LUfKBmHEZQMSHlgFkrUOwEfcChVAZWeb7vh_keNiYZdnIBgwZw_TMUBik18A-Z7hHgbhC" },
-  { title: "Buyout completo", desc: "Exclusividad absoluta del restaurante para grandes celebraciones.", src: "https://lh3.googleusercontent.com/aida/AP1WRLsW8JsPFu8d8dKSIJf7iOqaxG32bL4DQbYV71JMGNrTYuXWGvc_iFUpn6xLJNW4ao8h9Udj9D48zJ8ESJeQr1dfh0Hl05cAOFYNxHsPD64pjkThxGMpOqLOpA2donbh1PyXpcjkPkPvZhhkkhJZZJtAeZKEJb7CTGWZYeRDZFubHT6125sM-e1gXA3Os86tq6y3uQMIiYtMWiueedw2pV0W6Br0iMheDFr2nnhh7tlvhaVlwzaG8zrtR0yg" },
-  { title: "Experiencias", desc: "Maridajes exclusivos y talleres sensoriales a medida.", src: "https://lh3.googleusercontent.com/aida/AP1WRLsFnllbFSUH9xqiu2d18w1KOpgwRHgtdpT6ciH8mrJP55gyMGc_sZBSLfv8S3UOQO8daNi9xOrlCGQg9uGOeVWNU8JPiuNnrZq7NKRuD-UQv77mylpOC3VfWxwVNWFvidudsUxSnvJJ3_ah8z94AhxDzBFQEztVzg4SySl4uVK5EWb3oYCzxNtjYJqxfMebWDeME1hXl6iBNbz46_5qn0B281odYElRPIbG3FQljNeZ5Gr-eUODonZtSmqI" },
-];
 
 export function EventsSection() {
   return (
-    <section className="py-xxl px-margin-desktop max-w-screen-2xl mx-auto" id="eventos">
-      <div className="text-center mb-16">
-        <h2 className="reveal font-headline-lg text-headline-lg text-on-surface">Eventos privados</h2>
-        <div className="w-20 h-[1px] bg-primary mx-auto mt-4"></div>
+    <section className="py-xxl px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto" id="eventos">
+      <div className="text-center mb-12 md:mb-16">
+        <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Experiencias</span>
+        <h2 className="reveal font-headline-lg text-headline-lg text-on-surface mt-3 mb-6">Eventos de Autor</h2>
+        <div className="w-20 h-[1px] bg-primary mx-auto mb-8" />
+        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+          Espacios exclusivos para celebraciones íntimas, cenas corporativas y experiencias gastronómicas personalizadas.
+        </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-        {eventTypes.map((event, index) => (
-          <div key={event.title} className="reveal luxury-card p-8 text-center space-y-6 event-card-hover">
-            <img className="w-16 h-16 mx-auto opacity-80" src={event.src} alt={event.title} data-icon="event" data-alt={event.title} />
-            <h3 className="font-headline-md text-headline-md text-primary">{event.title}</h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">{event.desc}</p>
-            <Button variant="ghost" size="sm" href="#">Solicitar</Button>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12">
+        {/* Event Card 1 */}
+        <div className="relative group overflow-hidden reveal h-[300px] md:h-[400px]">
+          <img
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            src="/images/wine-cellar.jpg"
+            alt="Cena Privada"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <span className="material-symbols-outlined text-primary text-[32px] mb-3" data-icon="restaurant">restaurant</span>
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Cena Privada</h3>
+            <p className="font-body-md text-on-surface-variant text-sm">Hasta 12 comensales en nuestra sala íntima</p>
           </div>
-        ))}
+        </div>
+
+        {/* Event Card 2 */}
+        <div className="relative group overflow-hidden reveal h-[300px] md:h-[400px]">
+          <img
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            src="/images/interior.jpg"
+            alt="Chef's Table"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <span className="material-symbols-outlined text-primary text-[32px] mb-3" data-icon="local_fire_department">local_fire_department</span>
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Chef's Table</h3>
+            <p className="font-body-md text-on-surface-variant text-sm">Experiencia exclusiva junto a la cocina</p>
+          </div>
+        </div>
+
+        {/* Event Card 3 */}
+        <div className="relative group overflow-hidden reveal h-[300px] md:h-[400px]">
+          <img
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            src="/images/chef-portrait.jpg"
+            alt="Maridaje de Vinos"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <span className="material-symbols-outlined text-primary text-[32px] mb-3" data-icon="wine_bar">wine_bar</span>
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Maridaje de Vinos</h3>
+            <p className="font-body-md text-on-surface-variant text-sm">Selección de bodegas exclusivas</p>
+          </div>
+        </div>
+
+        {/* Event Card 4 */}
+        <div className="relative group overflow-hidden reveal h-[300px] md:h-[400px]">
+          <img
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            src="/images/wine-cellar.jpg"
+            alt="Evento Corporativo"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <span className="material-symbols-outlined text-primary text-[32px] mb-3" data-icon="groups">groups</span>
+            <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Evento Corporativo</h3>
+            <p className="font-body-md text-on-surface-variant text-sm">Espacios versátiles para eventos empresariales</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-center">
+        <Link
+          href="/eventos"
+          className="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors uppercase tracking-widest"
+        >
+          Ver todos los eventos
+          <span className="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+        </Link>
       </div>
     </section>
   );

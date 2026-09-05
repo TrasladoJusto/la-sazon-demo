@@ -40,7 +40,7 @@ export function ChefEnhanced() {
             <div className="relative h-[700px] overflow-hidden group">
               <div className="absolute inset-0 border-2 border-primary/20 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1" />
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVQRwHATfgRwy6EJS4vRL2yOt-FGzLUU9sHZeLXrTLFUUQw9RKWdUQWXwc02u9upQtTmNXbReNekZ1ibomhqnqZL-rEM8JCX9mZ2UBV9BBZzcw5Xq4k0j9weo8QfBeTHpAk9nY02lIrAxjCkr-EyOVyDUIfH368kBDvktgdp3oqRMw1jyRcl7Iu6jJPctPCHaQB4ysWcLws_nuPdQt8dxNbXV3LYg3yGE6T4HnLtg80FnBSaWQAUfEBGuA9296SmbM6mhFZdoHY5LR"
+                src="/images/chef-portrait.jpg"
                 alt="Chef Adrián Castillo"
                 className="absolute inset-0 w-full h-full object-cover grayscale-[20%] hover:grayscale-0 hover:scale-105 transition-all duration-1000"
                 data-icon="person"

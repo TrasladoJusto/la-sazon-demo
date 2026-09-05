@@ -3,15 +3,15 @@ import { useState, useEffect } from "react";
 import { Lightbox, GalleryImage } from "@/components/ui/Lightbox";
 
 const galleryImages: GalleryImage[] = [
-  { src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDs_lHAB4muz6cDOo9lvynizkDTH1CgalcFeyKmsqkdiaR8WZgqobcLNrItKD7zq4_Mui0cwS3iRKZtIs7MRrzb9nLGR5WomfbNdAm8NDd1FWF42yf8GDEStVpaqh6X7ZUlT62bjBsuxoj3eAekczOCVQVrpVVdH6Kjbf9bm044sb4rcxdG0vo6rvTK1Od3xEPa1HKr3CgHdqhKux-EDAN3jYpVCEAJNXEML8R_265RYfhU0UjaB7HxHKu0W8oIQ7qgXB5xzt_11UQl", alt: "Luxury restaurant interior at twilight", category: "sala" },
-  { src: "https://lh3.googleusercontent.com/aida/AP1WRLuNA-b1V1tgTHAP2MHTs5eFjfXvrQfmch9hsf4vnH-fusQvoxZ6atwc470H8U6IGf5uaJTTD6FQRvV_PqrA_r9gGAyfEx7xOsXmPUDgMAPfnpjvE76O-JFgME-RZfAsUxovAv616K_kZv1p_8B5nSm3qPgnxU1fSYxefX2-tSA5u3PkE_glDqUkmhcYUTAsri3oLIGZEuuFca-N36PI4ubFzwdJ4kX_ZQxTTF0sRvjF-msrWTqqNhVh5LDY", alt: "Fresh black winter truffles macro shot", category: "platos" },
-  { src: "https://lh3.googleusercontent.com/aida/AP1WRLtNbuK4Pd92lHev0OljpkR3ZoSHHX5n3c07j6AD4M_hkLlkRNHg26EoN_3mYAUolMLb3CQ5ny8Sgo-UFZzDN_WiqA9TUjttPe-Dqqn4VCHig2al3w5LGR9YHiuNDf6llrJpdPEhb79IjI871gxS3nZzSFEERrj8PNWdzli1y3Ecq4_TYGqFoESV66UycxFOPFkb-N4_uU6EJE2YwgVisq1saGmnqf0Yxnd8ZHFZiWf26F2_Cygk-_xofnAJ", alt: "Premium Wagyu beef course", category: "platos" },
-  { src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAOBr4H0Zq0d1JeFOS_Ns2FwFN2pwtCBqvMA-wV6qGl1GL7n5NdolpBTqLIe-VIMRgyAksrKDweIOMCnIRPf56DLkc_wrrSTteHWOJXTI0SEgtT7mDtjFjzEgqHKhCKi5HKFuFKFm76aMHHcAy7rAqN2z0JCJed40dfOhWhZCjl1JWnqJPBck_jO_hvQfgR6veX-gC8RiNB-Gb_kU8S5Ht5x8z1q2vS6zwlf4VtiyE9DVUgqwCeKl8h3ho1_kVDb-KlZQJHYarf9CHX", alt: "Wine cellar with rare bottles", category: "bodega" },
-  { src: "https://lh3.googleusercontent.com/aida/AP1WRLtykP61G7OtulBwNyHBq_dhcVzOD233AfNaJAMawnj228ZvW2my61v2Uz-vqmsdyuKtXldv7VPe-CTfUyW8qiNV3Z_8jF_6W92gknA4PsNkguekKLa0lGT7oEy6X_ObCv7qFnLZYhaEnmEDifLYV6_s9McXgGfLbDHSPy8yD2Sizgg2Tz85J2RrdZrGDffWnpfoUJFCXbrXxo4UR4dtqUZVIBoQG2hMPCaem8-Kggy9K__F9rlAKCH5vCLn", alt: "Elegant chocolate dessert with gold leaf", category: "platos" },
-  { src: "https://lh3.googleusercontent.com/aida/AP1WRLtqRjW9lswyMXtVuw4y6aGP1qqchuzr20hSIiv-iIIF23noN1aTM-PLZTOuCU72CDKS1Tgl9otB4WrCVSymxv_EWv9g6rm5rmtRINVBeGPkxOzrq2qQujZj31oXLMRUSnVaipsMewnJlSzU5_VQmeVjJ_iSwqBWFxJUc85rN7AdVYPKUoWI16u13DEj7uMJUfrggm568NgDLZ0-N0EXQgGtTyRyqBqc5vZtgFUGQiDaedpKscJ03XSb4hiD", alt: "Minimalist vegetarian dish", category: "platos" },
-  { src: "https://lh3.googleusercontent.com/aida/AP1WRLuNAFTNyG07GQ17qKfd-_GnqR3UxPLPLSc1BL-sbkbyuN4-SFo3YAx8FSTz46IOHkHiH6Kv5JDphb1e1ea4AOE9UKF5_qLr2Z-VjgrMCTQDbS_V45E43VVuMHQ4PDB5HtvyjfWk_xPddZ_OiC1gqBd7TLQBSUdrSNXCli6YGtWkngn5SePHNCuIrlWIci07cjwWeBYFhXfmwDWGSufScMVV9J1d_EDn797czBpD4o2mJX34bMqZtfuy_GpJ", alt: "Cinematic kitchen action", category: "detalles" },
-  { src: "https://lh3.googleusercontent.com/aida/AP1WRLu2jOthCv042ojaDOMYxVsHKunML0F2V2Ut6KxpH_7ghnRLiKN5l9pxAp11EvqlN8-7q-6zlkDj6CtJprsyPlVLrLYME-4DE5uCxOOT_1WDLSYxRmrRvGdrigB5FnMYS86pjYVktrohUkz9XuZWdBRD3K6UIhheP_NUwjPJzhTEmxLfbp9Gp2LEj9OmbFkG04IEOa2kB-QRD7wuQClCV72_5t7XNIXIaukswjTA1q0jUnHHiJYIiLP4qs0", alt: "Gourmet seafood with gold leaf", category: "platos" },
-  { src: "https://lh3.googleusercontent.com/aida/AP1WRLsFnllbFSUH9xqiu2d18w1KOpgwRHgtdpT6ciH8mrJP55gyMGc_sZBSLfv8S3UOQO8daNi9xOrlCGQg9uGOeVWNU8JPiuNnrZq7NKRuD-UQv77mylpOC3VfWxwVNWFvidudsUxSnvJJ3_ah8z94AhxDzBFQEztVzg4SySl4uVK5EWb3oYCzxNtjYJqxfMebWDeME1hXl6iBNbz46_5qn0B281odYElRPIbG3FQljNeZ5Gr-eUODonZtSmqI", alt: "Wine cellar interior atmosphere", category: "ambiente" },
+  { src: "/images/interior.jpg", alt: "Luxury restaurant interior at twilight", category: "sala" },
+  { src: "/images/dish-truffles.jpg", alt: "Fresh black winter truffles macro shot", category: "platos" },
+  { src: "/images/dish-wagyu.jpg", alt: "Premium Wagyu beef course", category: "platos" },
+  { src: "/images/wine-cellar.jpg", alt: "Wine cellar with rare bottles", category: "bodega" },
+  { src: "/images/dish-dessert.jpg", alt: "Elegant chocolate dessert with gold leaf", category: "platos" },
+  { src: "/images/dish-vegetarian.jpg", alt: "Minimalist vegetarian dish", category: "platos" },
+  { src: "/images/chef-action.jpg", alt: "Cinematic kitchen action", category: "detalles" },
+  { src: "/images/dish-fine-dining.jpg", alt: "Gourmet seafood with gold leaf", category: "platos" },
+  { src: "/images/wine-cellar.jpg", alt: "Wine cellar interior atmosphere", category: "ambiente" },
 ];
 
 const categories = [
