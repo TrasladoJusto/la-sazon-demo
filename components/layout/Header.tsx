@@ -42,19 +42,22 @@ export function Header() {
         </div>
 
         {/* Trailing Actions */}
-        <div className="flex items-center gap-md">
-          <div className="hidden sm:flex items-center gap-xs text-label-sm font-label-sm text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-300">
-            <span className="material-symbols-outlined text-[18px]">language</span>
-            <select className="bg-transparent border-none focus:ring-0 p-0 text-inherit cursor-pointer uppercase">
-              <option value="es">ES</option>
-              <option value="en">EN</option>
-              <option value="de">DE</option>
-              <option value="fr">FR</option>
-            </select>
+        <div className="flex items-center gap-6">
+          <div className="hidden sm:flex items-center gap-2 font-label-sm font-label-sm text-on-surface-variant">
+            <span className="hover:text-primary cursor-pointer transition-colors">DE</span>
+            <span className="text-outline-variant">|</span>
+            <span className="text-primary cursor-pointer">EN</span>
+            <span className="text-outline-variant">|</span>
+            <span className="hover:text-primary cursor-pointer transition-colors">FR</span>
+            <span className="text-outline-variant">|</span>
+            <span className="hover:text-primary cursor-pointer transition-colors">ES</span>
           </div>
-          <a className="cursor-pointer transition-transform active:scale-95 text-on-surface-variant hover:text-primary" href="https://wa.me/restaurant">
-            <span className="material-symbols-outlined" data-icon="chat">chat</span>
-          </a>
+          <div className="flex gap-4">
+            <span className="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity" data-icon="language">language</span>
+            <a className="cursor-pointer transition-transform active:scale-95 text-on-surface-variant hover:text-primary" href="https://wa.me/restaurant">
+              <span className="material-symbols-outlined" data-icon="chat">chat</span>
+            </a>
+          </div>
           {/* Mobile Menu Toggle */}
           <button className="lg:hidden text-on-surface p-1" onClick={() => setMobileOpen(!mobileOpen)}>
             <span className="material-symbols-outlined" data-icon="menu">menu</span>
@@ -71,14 +74,14 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <div className="flex items-center gap-md">
-              <span className="material-symbols-outlined text-[18px]">language</span>
-              <select className="bg-transparent border-none focus:ring-0 p-0 text-inherit cursor-pointer uppercase">
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-                <option value="de">DE</option>
-                <option value="fr">FR</option>
-              </select>
+            <div className="flex items-center gap-2 font-label-sm font-label-sm text-on-surface-variant">
+              <span className="hover:text-primary cursor-pointer transition-colors">DE</span>
+              <span className="text-outline-variant">|</span>
+              <span className="text-primary cursor-pointer">EN</span>
+              <span className="text-outline-variant">|</span>
+              <span className="hover:text-primary cursor-pointer transition-colors">FR</span>
+              <span className="text-outline-variant">|</span>
+              <span className="hover:text-primary cursor-pointer transition-colors">ES</span>
             </div>
           </div>
         </div>
