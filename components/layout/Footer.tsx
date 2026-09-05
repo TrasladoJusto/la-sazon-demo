@@ -1,46 +1,54 @@
-import Link from "next/link";
+"use client";
 
 export function Footer() {
   return (
-    <footer className="bg-surface-container-lowest border-t border-outline-variant/10" role="contentinfo">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-xxl max-w-[1280px] mx-auto">
-        <div className="space-y-md">
-          <div className="font-headline-md text-headline-md text-primary tracking-widest">PROVENANCE</div>
-          <p className="text-on-surface-variant text-body-md max-w-xs">La excelencia gastronómica nacida de la tierra y la memoria.</p>
-          <div className="flex gap-4 pt-md">
-            <span className="material-symbols-outlined text-primary cursor-pointer" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }}>public</span>
-            <span className="material-symbols-outlined text-primary cursor-pointer" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }}>share</span>
+    <footer className="bg-surface-container-lowest border-t border-outline/10">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-xxl w-full max-w-screen-2xl mx-auto">
+        {/* Column 1: Brand */}
+        <div className="space-y-6">
+          <div className="font-headline-md text-headline-md text-primary-fixed uppercase tracking-widest">PROVENANCE</div>
+          <p className="font-body-md text-body-md text-on-surface-variant pr-8">La excelencia gastronómica nacida de la tierra y la memoria.</p>
+          <div className="flex gap-4">
+            <span className="material-symbols-outlined text-primary-fixed cursor-pointer" data-icon="public">public</span>
+            <span className="material-symbols-outlined text-primary-fixed cursor-pointer" data-icon="share">share</span>
           </div>
         </div>
-        <div>
-          <h5 className="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-lg">Experiencia</h5>
-          <ul className="space-y-sm">
-            <li><a href="#experiencia" className="text-on-surface-variant hover:text-primary transition-colors font-label-md">Experiencia</a></li>
-            <li><a href="#menu" className="text-on-surface-variant hover:text-primary transition-colors font-label-md">Menú</a></li>
-            <li><a href="#chef" className="text-on-surface-variant hover:text-primary transition-colors font-label-md">Chef</a></li>
-            <li><a href="#galeria" className="text-on-surface-variant hover:text-primary transition-colors font-label-md">Galería</a></li>
+
+        {/* Column 2: Navigation */}
+        <div className="space-y-4">
+          <p className="font-label-sm text-label-sm text-primary-fixed uppercase tracking-widest">Navegación</p>
+          <ul className="space-y-2">
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#experiencia">Experiencia</a></li>
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#menu">Menú</a></li>
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#chef">Chef</a></li>
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#galeria">Galería</a></li>
           </ul>
         </div>
-        <div>
-          <h5 className="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-lg">Legal</h5>
-          <ul className="space-y-sm">
-            <li><a href="#" className="text-on-surface-variant hover:text-primary transition-colors font-label-md">Privacidad</a></li>
-            <li><a href="#" className="text-on-surface-variant hover:text-primary transition-colors font-label-md">Términos</a></li>
-            <li><a href="#" className="text-on-surface-variant hover:text-primary transition-colors font-label-md">Aviso legal</a></li>
+
+        {/* Column 3: Legal */}
+        <div className="space-y-4">
+          <p className="font-label-sm text-label-sm text-primary-fixed uppercase tracking-widest">Legal</p>
+          <ul className="space-y-2">
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Aviso Legal</a></li>
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Privacidad</a></li>
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Cookies</a></li>
+            <li><a className="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Contacto</a></li>
           </ul>
         </div>
-        <div>
-          <h5 className="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-lg">Newsletter</h5>
-          <p className="text-on-surface-variant text-body-md mb-md">Suscríbase para recibir noticias sobre nuestros menús de temporada.</p>
+
+        {/* Column 4: Newsletter */}
+        <div className="space-y-4">
+          <p className="font-label-sm text-label-sm text-primary-fixed uppercase tracking-widest">Newsletter</p>
+          <p className="font-body-md text-body-md text-on-surface-variant">Suscríbete para novedades exclusivas.</p>
           <div className="flex border-b border-outline-variant">
-            <input className="bg-transparent border-none focus:ring-0 text-on-surface font-body-md placeholder:text-outline/50 w-full py-sm uppercase tracking-wider" placeholder="EMAIL" type="email" />
-            <button className="ml-3 text-primary hover:text-white transition-colors"><span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }}>arrow_forward</span></button>
+            <input className="bg-transparent border-none focus:ring-0 text-on-surface w-full py-2 placeholder:text-outline-variant" placeholder="Tu email" type="email" />
+            <button className="material-symbols-outlined text-primary-fixed" data-icon="arrow_forward">arrow_forward</button>
           </div>
         </div>
       </div>
-      <div className="px-margin-desktop py-lg border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-md max-w-[1280px] mx-auto">
-        <p className="font-label-sm text-on-surface-variant uppercase tracking-widest text-[10px]">© 2025 PROVENANCE. Todos los derechos reservados.</p>
-        <span className="font-label-sm text-outline/40 uppercase tracking-widest text-[10px]">Gastronomía de Origen</span>
+
+      <div className="px-margin-desktop py-8 border-t border-outline-variant/10 text-center">
+        <p className="font-label-sm text-label-sm text-on-surface-variant">© 2025 PROVENANCE RESTAURANT. TODOS LOS DERECHOS RESERVADOS.</p>
       </div>
     </footer>
   );

@@ -4,24 +4,31 @@ import { Button } from "@/components/ui/Button";
 
 export function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden" aria-labelledby="hero-title">
-      <div className="absolute inset-0 z-0">
-        <img alt="Cinematic dining room at dusk" className="w-full h-full object-cover brightness-[0.4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs66A-piga6QO_mfgs_uwoy5ayMSQoXMBDIr4wx-vlUnp7_kb--EP_RDhTdbZr-1ODcByBmNVZlpSjmqthkyLooWGkgoC5CoGpAa__5x0ZKMpqzBS0HpwRxKvSrLHFE1AYSbvSGlB54WdSf9gc5Sc3Mtd-GEmGt2_roZvUYCplj4yyU6CvjnbIINsOGW6Y2KOczYHiVuvY7oeuJGDZ1UBIqO9oyrjI7yVMsAUBylAlJI__suNtTSUYY55Dv5sRdrB6Np9mUds4GxXG" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
+    <section className="relative h-screen flex items-center justify-center overflow-hidden gold-mesh-bg" aria-labelledby="hero-title">
+      <div className="relative z-10 w-full max-w-[1280px] px-margin-mobile md:px-margin-desktop text-center">
+        {/* Tagline */}
+        <div className="mb-sm opacity-0 translate-y-4 animate-[fadeInUp_1s_ease-out_forwards]">
+          <span className="font-label-md text-label-md uppercase tracking-[0.4em] text-primary/80">
+            Donde el origen define la excelencia
+          </span>
+        </div>
+        {/* Main Heading */}
+        <h1 id="hero-title" className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-xl gold-gradient-text tracking-tighter opacity-0 translate-y-4 animate-[fadeInUp_1s_ease-out_0.2s_forwards]">
+          PROVENANCE
+        </h1>
+        {/* Buttons Container */}
+        <div className="flex flex-col sm:flex-row gap-lg justify-center items-center mt-xl opacity-0 translate-y-4 animate-[fadeInUp_1s_ease-out_0.4s_forwards]">
+          <Button variant="primary" size="lg" href="#reservas">Reservar mesa</Button>
+          <Button variant="outline" size="lg" href="#experiencia">Ver experiencia</Button>
+        </div>
       </div>
-      <div className="relative z-10 text-center px-margin-mobile max-w-4xl mx-auto">
-        <SectionReveal>
-          <h1 id="hero-title" className="font-playfair text-[80px] md:text-[140px] leading-none gold-gradient-text mb-6">PROVENANCE</h1>
-          <p className="font-display-lg text-display-lg-mobile text-secondary tracking-[0.3em] uppercase mb-12">Donde el origen define la excelencia</p>
-          <div className="flex flex-col md:flex-row gap-md justify-center">
-            <Button variant="primary" size="lg" href="#reservas">Reservar mesa</Button>
-            <Button variant="outline" size="lg" href="#experiencia">Ver experiencia</Button>
-          </div>
-        </SectionReveal>
+      {/* Animated Scroll Chevron */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 scroll-chevron opacity-60">
+        <span className="material-symbols-outlined text-primary text-[32px]">keyboard_double_arrow_down</span>
       </div>
-      <a className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce" href="#experiencia" aria-label="Scroll down">
-        <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 0, 'wght' 300" }}>expand_more</span>
-      </a>
+      {/* Atmospheric Elements */}
+      <div className="absolute -left-20 top-1/4 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute -right-20 bottom-1/4 w-96 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
     </section>
   );
 }
