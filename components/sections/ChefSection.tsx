@@ -18,18 +18,18 @@ export function ChefSection() {
               &ldquo;La cocina es memoria hecha sabor. No buscamos solo alimentar: buscamos evocar.&rdquo;
             </p>
           </blockquote>
-          <div className="grid grid-cols-3 gap-6 max-w-xl">
-            <div className="text-center">
+          <div className="grid grid-cols-3 gap-2 md:gap-6 max-w-xl">
+            <div className="text-center min-w-0">
               <span className="font-headline-lg text-display-lg text-primary block">3</span>
-              <span className="font-label-sm text-label-sm text-secondary uppercase">Estrellas Michelin</span>
+              <span className="font-label-sm text-label-sm text-secondary uppercase break-words block">Estrellas Michelin</span>
             </div>
-            <div className="text-center border-x border-outline-variant/20">
+            <div className="text-center border-x border-outline-variant/20 min-w-0">
               <span className="font-headline-lg text-display-lg text-primary block">15</span>
-              <span className="font-label-sm text-label-sm text-secondary uppercase">Años de Maestría</span>
+              <span className="font-label-sm text-label-sm text-secondary uppercase break-words block">Años de Maestría</span>
             </div>
-            <div className="text-center">
+            <div className="text-center min-w-0">
               <span className="font-headline-lg text-display-lg text-primary block">40+</span>
-              <span className="font-label-sm text-label-sm text-secondary uppercase">Productores</span>
+              <span className="font-label-sm text-label-sm text-secondary uppercase break-words block">Productores</span>
             </div>
           </div>
         </div>

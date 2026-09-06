@@ -41,7 +41,7 @@ export function LocationSection() {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 gap-gutter">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
               <div className="border border-outline-variant/10 p-6 space-y-2">
                 <p className="font-label-sm text-label-sm text-primary uppercase tracking-widest">Horarios</p>
                 <div className="space-y-1">
@@ -50,19 +50,19 @@ export function LocationSection() {
                   <p className="text-on-surface-variant font-body-md">Domingo y Lunes: cerrado</p>
                 </div>
               </div>
-              <div className="border border-outline-variant/10 p-6 space-y-2">
+              <div className="border border-outline-variant/10 p-6 space-y-2 min-w-0">
                 <p className="font-label-sm text-label-sm text-primary uppercase tracking-widest">Contacto</p>
-                <div className="space-y-2">
+                <div className="space-y-2 min-w-0">
                   <a href="tel:+34912345678" className="flex items-center gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors">
-                    <span className="material-symbols-outlined text-[18px] text-primary" aria-hidden="true">call</span>
+                    <span className="material-symbols-outlined text-[18px] text-primary shrink-0" aria-hidden="true">call</span>
                     +34 912 345 678
                   </a>
-                  <a href="mailto:reservas@aura-restaurant.com" className="flex items-center gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors">
-                    <span className="material-symbols-outlined text-[18px] text-primary" aria-hidden="true">mail</span>
+                  <a href="mailto:reservas@aura-restaurant.com" className="flex items-start gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors min-w-0 break-all">
+                    <span className="material-symbols-outlined text-[18px] text-primary shrink-0" aria-hidden="true">mail</span>
                     reservas@aura-restaurant.com
                   </a>
-                  <a href="https://instagram.com/aura.restaurant" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors">
-                    <span className="material-symbols-outlined text-[18px] text-primary" aria-hidden="true">public</span>
+                  <a href="https://instagram.com/aura.restaurant" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors min-w-0">
+                    <span className="material-symbols-outlined text-[18px] text-primary shrink-0" aria-hidden="true">public</span>
                     @aura.restaurant
                   </a>
                 </div>

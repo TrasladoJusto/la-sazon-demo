@@ -64,7 +64,7 @@ export function ContactForm() {
         <textarea id="c-mensaje" rows={5} placeholder="Cuéntenos sobre su consulta..." className={`${fieldClass} resize-none`} {...register("message")} />
         {errors.message && <p role="alert" className={errorClass}>{errors.message.message}</p>}
       </div>
-      <div className="flex items-center gap-6">
+      <div className="flex flex-wrap items-center gap-6">
         <button
           type="submit"
           disabled={status === "loading" || status === "success"}

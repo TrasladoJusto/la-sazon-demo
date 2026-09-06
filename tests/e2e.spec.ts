@@ -222,26 +222,61 @@ test.describe("Menú Hamburguesa (Mobile)", () => {
     await expect(burger).toBeVisible();
 
     await burger.click();
-    await expect(page.locator('header a', { hasText: "Menú" }).last()).toBeVisible();
+    await expect(page.getByRole("dialog").getByRole("link", { name: "Menú" })).toBeVisible();
 
     await page.locator('header button[aria-label="Cerrar menú"]').click();
     await page.waitForTimeout(400);
-    await expect(page.locator('header a', { hasText: "Menú" }).last()).toBeHidden();
+    await expect(page.getByRole("dialog").getByRole("link", { name: "Menú" })).toBeHidden();
   });
 
   test("navegar a una página desde el menú móvil lo cierra", async ({ page }) => {
     await page.goto("/");
     await page.locator('header button[aria-label="Abrir menú"]').click();
-    await page.locator('header a', { hasText: "Menú" }).last().click();
+    await page.getByRole("dialog").getByRole("link", { name: "Menú" }).click();
     await expect(page).toHaveURL(/\/menu$/);
-    await expect(page.locator('header a', { hasText: "Menú" }).last()).toBeHidden({ timeout: 10000 });
+    await expect(page.getByRole("dialog").getByRole("link", { name: "Menú" })).toBeHidden({ timeout: 10000 });
   });
 
   test("el CTA Reservar del menú móvil lleva a /reservar", async ({ page }) => {
     await page.goto("/");
     await page.locator('header button[aria-label="Abrir menú"]').click();
-    await page.locator('header a', { hasText: "Reservar Mesa" }).click();
+    await page.getByRole("dialog").getByRole("link", { name: "Reservar Mesa" }).click();
     await expect(page).toHaveURL(/\/reservar$/);
+  });
+
+  test("el menú móvil cubre toda la pantalla también sobre página scrolleada", async ({ page }) => {
+    await page.goto("/");
+    await page.evaluate(() => window.scrollTo(0, 1400));
+    await page.waitForTimeout(500);
+    await page.locator('header button[aria-label="Abrir menú"]').click();
+    await page.waitForTimeout(1200);
+    const dialog = page.getByRole("dialog");
+    const box = await dialog.boundingBox();
+    expect(box).not.toBeNull();
+    if (box) {
+      expect(box.y).toBe(0);
+      expect(box.x).toBe(0);
+      expect(box.y + box.height).toBeGreaterThanOrEqual(810);
+    }
+    // El CTA queda dentro del overlay clicable y navega
+    await dialog.getByRole("link", { name: "Reservar Mesa" }).click();
+    await expect(page).toHaveURL(/\/reservar$/);
+  });
+
+  test("el menú móvil cubre toda la pantalla en subpáginas", async ({ page }) => {
+    await page.goto("/menu");
+    await page.locator('header button[aria-label="Abrir menú"]').click();
+    await page.waitForTimeout(1100);
+    const dialog = page.getByRole("dialog");
+    const box = await dialog.boundingBox();
+    expect(box).not.toBeNull();
+    if (box) {
+      expect(box.y).toBe(0);
+      expect(box.y + box.height).toBeGreaterThanOrEqual(810);
+    }
+    await expect(dialog.getByRole("link", { name: "Contacto" })).toBeVisible();
+    await dialog.getByRole("link", { name: "Contacto" }).click();
+    await expect(page).toHaveURL(/\/contacto$/);
   });
 
   test("el menú estático de páginas se ve sólido en subpáginas móviles", async ({ page }) => {
@@ -268,5 +303,49 @@ test.describe("Footer", () => {
     await page.goto("/");
     await expect(page.locator('footer a[href^="tel:"]')).toHaveCount(1);
     await expect(page.locator('footer a[href^="mailto:"]')).toHaveCount(2);
+  });
+});
+
+test.describe("Responsividad móvil (overflow)", () => {
+  const routes = ["/", "/menu", "/reservar", "/contacto"];
+
+  test("ninguna página desborda horizontalmente en 320px", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 812 });
+    for (const route of routes) {
+      await page.goto(route, { waitUntil: "networkidle" });
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+      expect(overflow, `${route} desborda en 320px`).toBeFalsy();
+    }
+  });
+
+  test("ninguna página desborda horizontalmente en 1024px", async ({ page }) => {
+    await page.setViewportSize({ width: 1024, height: 812 });
+    for (const route of routes) {
+      await page.goto(route, { waitUntil: "networkidle" });
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+      expect(overflow, `${route} desborda en 1024px`).toBeFalsy();
+    }
+  });
+
+  test("las pestañas de la carta son deslizables en móvil sin desbordar", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 812 });
+    await page.goto("/menu", { waitUntil: "networkidle" });
+    const tablist = page.locator('[role="tablist"]');
+    await expect(tablist).toBeVisible();
+    const box = await tablist.boundingBox();
+    expect(box).not.toBeNull();
+    if (box) {
+      expect(box.x).toBeGreaterThanOrEqual(0);
+      expect(box.x + box.width).toBeLessThanOrEqual(320 + 1);
+    }
+    await expect(tablist).toHaveCSS("overflow-x", "auto");
+  });
+
+  test("las tarjetas de contacto apilan en una columna en móvil", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 812 });
+    await page.goto("/contacto", { waitUntil: "networkidle" });
+    await expect(page.getByText("Horarios")).toBeVisible();
+    await expect(page.locator("#contacto").getByText("Contacto", { exact: true })).toBeVisible();
+    await expect(page.locator("#contacto").locator('a[href^="mailto:"]').first()).toBeVisible();
   });
 });

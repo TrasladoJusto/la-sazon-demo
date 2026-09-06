@@ -1,12 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Las páginas internas siempre arrancan con el header sólido (no tienen hero a pantalla completa)
   useEffect(() => {
@@ -91,52 +97,59 @@ export function Header() {
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-background-dark transition-all duration-700 ease-in-out z-[90] flex flex-col justify-center px-margin-mobile overflow-hidden ${
-          mobileOpen ? "translate-y-0 opacity-100 visible" : "-translate-y-full opacity-0 invisible"
-        }`}
-      >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-          <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary/5 rounded-full blur-[100px]" />
-        </div>
-
-        <div className="flex flex-col gap-6 relative z-[91]">
-          {pageLinks.map((link, i) => (
-            <a
-              key={link.href}
-              className={`font-display-lg-mobile text-[36px] uppercase tracking-widest transition-all duration-500 transform ${
-                isPageActive(link.href) ? "text-primary" : "text-on-surface hover:text-primary"
-              } ${
-                mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
-              }`}
-              style={{ transitionDelay: `${i * 100 + 300}ms` }}
-              href={link.href}
-              onClick={closeMobile}
-            >
-              {link.label}
-            </a>
-          ))}
+      {/* Mobile Menu Overlay — portal al body: fixed se ancla al viewport aunque el header tenga backdrop-blur */}
+      {mounted &&
+        createPortal(
           <div
-            className={`pt-7 border-t border-outline-variant/10 transition-all duration-700 delay-700 ${
-              mobileOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú móvil"
+            className={`fixed inset-0 bg-background-dark transition-all duration-700 ease-in-out z-[95] flex flex-col justify-center px-margin-mobile overflow-hidden ${
+              mobileOpen ? "translate-y-0 opacity-100 visible" : "-translate-y-full opacity-0 invisible"
             }`}
           >
-            <a
-              className="inline-block bg-primary text-background-dark px-12 py-5 font-label-md text-label-md uppercase tracking-[0.2em] font-bold shadow-2xl shadow-primary/20 active:scale-95 transition-all"
-              href="/reservar"
-              onClick={closeMobile}
-            >
-              Reservar Mesa
-            </a>
-            <div className="mt-12 flex gap-6">
-              <a href="https://instagram.com/aura.restaurant" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary font-label-sm uppercase tracking-widest transition-colors">Instagram</a>
-              <a href="https://facebook.com/aurarestaurant" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary font-label-sm uppercase tracking-widest transition-colors">Facebook</a>
+            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+              <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+              <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary/5 rounded-full blur-[100px]" />
             </div>
-          </div>
-        </div>
-      </div>
+
+            <div className="flex flex-col gap-6 relative z-[91]">
+              {pageLinks.map((link, i) => (
+                <a
+                  key={link.href}
+                  className={`font-display-lg-mobile text-[36px] uppercase tracking-widest transition-all duration-500 transform ${
+                    isPageActive(link.href) ? "text-primary" : "text-on-surface hover:text-primary"
+                  } ${
+                    mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${i * 100 + 300}ms` }}
+                  href={link.href}
+                  onClick={closeMobile}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div
+                className={`pt-7 border-t border-outline-variant/10 transition-all duration-700 delay-700 ${
+                  mobileOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                <a
+                  className="inline-block bg-primary text-background-dark px-12 py-5 font-label-md text-label-md uppercase tracking-[0.2em] font-bold shadow-2xl shadow-primary/20 active:scale-95 transition-all"
+                  href="/reservar"
+                  onClick={closeMobile}
+                >
+                  Reservar Mesa
+                </a>
+                <div className="mt-12 flex gap-6">
+                  <a href="https://instagram.com/aura.restaurant" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary font-label-sm uppercase tracking-widest transition-colors">Instagram</a>
+                  <a href="https://facebook.com/aurarestaurant" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary font-label-sm uppercase tracking-widest transition-colors">Facebook</a>
+                </div>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </header>
   );
 }

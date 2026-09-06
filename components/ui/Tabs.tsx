@@ -25,14 +25,14 @@ export function Tabs({ tabs, defaultTab, onChange, children, className = "" }: T
 
   return (
     <div className={className}>
-      <div className="flex justify-center gap-2 md:gap-8 mb-12 border-b border-outline-variant/10" role="tablist">
+      <div className="flex justify-start md:justify-center gap-2 md:gap-8 mb-12 border-b border-outline-variant/10 overflow-x-auto no-scrollbar snap-x snap-mandatory" role="tablist">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             role="tab"
             aria-selected={active === tab.id}
             onClick={() => handleTab(tab.id)}
-            className={`relative px-4 md:px-8 py-4 font-label-md text-label-md uppercase tracking-widest transition-colors duration-300 ${
+            className={`relative px-4 md:px-8 py-4 font-label-md text-label-md uppercase tracking-widest transition-colors duration-300 whitespace-nowrap snap-start shrink-0 ${
               active === tab.id
                 ? "text-primary"
                 : "text-on-surface-variant hover:text-on-surface"
