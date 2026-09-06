@@ -2,44 +2,55 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+const SECTION_IDS = ["experiencia", "menu", "chef", "galeria", "eventos", "contacto"];
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeId, setActiveId] = useState<string | null>(null);
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Lock scroll when mobile menu is open
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = mobileOpen ? "hidden" : "unset";
   }, [mobileOpen]);
 
-  // Cerrar menú móvil al cambiar de ruta
+  // Scrollspy: resalta la sección visible de la home
   useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+    if (!isHome || mobileOpen) return;
+    const sections = SECTION_IDS
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id);
+        });
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, [isHome, mobileOpen]);
 
   const navLinks = [
-    { label: "Experiencia", href: "/experiencia" },
-    { label: "Menú", href: "/menu" },
-    { label: "Chef", href: "/chef" },
-    { label: "Galería", href: "/galeria" },
-    { label: "Eventos", href: "/eventos" },
-    { label: "Contacto", href: "/contacto" },
+    { label: "Experiencia", href: "#experiencia" },
+    { label: "Menú", href: "#menu" },
+    { label: "Chef", href: "#chef" },
+    { label: "Galería", href: "#galeria" },
+    { label: "Eventos", href: "#eventos" },
+    { label: "Contacto", href: "#contacto" },
   ];
 
-  const isActive = (href: string) =>
-    pathname === href || (href !== "/" && pathname.startsWith(href));
+  const isActive = (href: string) => activeId === href.slice(1);
 
   return (
     <header
@@ -50,13 +61,7 @@ export function Header() {
       <nav className="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto relative z-[110]">
         <a
           href="/"
-          onClick={(e) => {
-            if (pathname === "/") {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
-            setMobileOpen(false);
-          }}
+          onClick={() => setMobileOpen(false)}
           className="font-headline-md text-headline-md tracking-[0.3em] text-primary cursor-pointer hover:opacity-80 transition-opacity"
         >
           AURA
@@ -71,7 +76,7 @@ export function Header() {
                 isActive(link.href) ? "text-primary" : "text-on-surface/80 hover:text-primary"
               }`}
               href={link.href}
-              aria-current={isActive(link.href) ? "page" : undefined}
+              aria-current={isActive(link.href) ? "true" : undefined}
             >
               {link.label}
               <span
@@ -83,7 +88,7 @@ export function Header() {
           ))}
           <a
             className="bg-primary hover:bg-primary-container text-background-dark px-8 py-3 font-label-sm text-label-sm uppercase tracking-[0.2em] font-bold transition-all duration-500 shadow-lg shadow-primary/10"
-            href="/reservar"
+            href="#reservas"
           >
             Reservar
           </a>
@@ -136,7 +141,7 @@ export function Header() {
           >
             <a
               className="inline-block bg-primary text-background-dark px-12 py-5 font-label-md text-label-md uppercase tracking-[0.2em] font-bold shadow-2xl shadow-primary/20 active:scale-95 transition-all"
-              href="/reservar"
+              href="#reservas"
               onClick={() => setMobileOpen(false)}
             >
               Reservar Mesa

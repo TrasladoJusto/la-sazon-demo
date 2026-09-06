@@ -13,7 +13,7 @@ export function GallerySection() {
   ];
 
   return (
-    <section className="py-xxl bg-background">
+    <section className="py-xxl bg-background" id="galeria">
       <div className="px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto">
         <div className="text-center mb-16 reveal">
           <p className="font-label-sm text-label-sm text-primary uppercase tracking-[0.4em] mb-4">Galería</p>

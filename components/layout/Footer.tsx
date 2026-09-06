@@ -4,18 +4,18 @@ export function Footer() {
       title: "Restaurante",
       links: [
         { label: "Inicio", href: "/" },
-        { label: "Experiencia", href: "/experiencia" },
-        { label: "La Carta", href: "/menu" },
-        { label: "El Chef", href: "/chef" },
+        { label: "Experiencia", href: "/#experiencia" },
+        { label: "La Carta", href: "/#menu" },
+        { label: "El Chef", href: "/#chef" },
       ],
     },
     {
       title: "AURA",
       links: [
-        { label: "Galería", href: "/galeria" },
-        { label: "Eventos", href: "/eventos" },
-        { label: "Reservar Mesa", href: "/reservar" },
-        { label: "Contacto", href: "/contacto" },
+        { label: "Galería", href: "/#galeria" },
+        { label: "Eventos", href: "/#eventos" },
+        { label: "Reservar Mesa", href: "/#reservas" },
+        { label: "Contacto", href: "/#contacto" },
       ],
     },
   ];

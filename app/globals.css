@@ -1,4 +1,4 @@
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body { background-color: #000000; color: #e9e1d8; overflow-x: hidden; }
 
 /* ── Hero Mesh Gradient ── */
