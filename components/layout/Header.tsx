@@ -2,12 +2,9 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const HOME_SECTIONS = ["experiencia", "galeria", "chef", "eventos"];
-
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeId, setActiveId] = useState<string | null>(null);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -31,45 +28,12 @@ export function Header() {
     };
   }, [mobileOpen]);
 
-  // Scrollspy: resalta la sección visible de la home
-  useEffect(() => {
-    if (!isHome || mobileOpen) return;
-    const sections = HOME_SECTIONS
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveId(entry.target.id);
-        });
-      },
-      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, [isHome, mobileOpen]);
-
-  // Anclas de la home + páginas separadas
-  const anchorLinks = [
-    { label: "Experiencia", href: "#experiencia" },
-    { label: "Galería", href: "#galeria" },
-    { label: "Chef", href: "#chef" },
-    { label: "Eventos", href: "#eventos" },
-  ];
   const pageLinks = [
     { label: "Menú", href: "/menu" },
     { label: "Contacto", href: "/contacto" },
   ];
 
-  const isAnchorActive = (href: string) => activeId === href.slice(1);
   const isPageActive = (href: string) => pathname === href;
-
-  const navLinks = [
-    ...anchorLinks.map((l) => ({ ...l, active: isAnchorActive(l.href) })),
-    ...pageLinks.map((l) => ({ ...l, active: isPageActive(l.href) })),
-  ];
-
   const closeMobile = () => setMobileOpen(false);
 
   return (
@@ -89,23 +53,6 @@ export function Header() {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex gap-7 xl:gap-9 items-center">
-          {anchorLinks.map((link) => (
-            <a
-              key={link.href}
-              className={`font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all duration-300 relative group ${
-                isAnchorActive(link.href) ? "text-primary" : "text-on-surface/80 hover:text-primary"
-              }`}
-              href={link.href}
-              aria-current={isAnchorActive(link.href) ? "true" : undefined}
-            >
-              {link.label}
-              <span
-                className={`absolute -bottom-1 left-0 h-[1px] bg-primary transition-all duration-300 ${
-                  isAnchorActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              />
-            </a>
-          ))}
           {pageLinks.map((link) => (
             <a
               key={link.href}
@@ -156,21 +103,6 @@ export function Header() {
         </div>
 
         <div className="flex flex-col gap-6 relative z-[91]">
-          {anchorLinks.map((link, i) => (
-            <a
-              key={link.href}
-              className={`font-display-lg-mobile text-[36px] uppercase tracking-widest transition-all duration-500 transform ${
-                isAnchorActive(link.href) ? "text-primary" : "text-on-surface hover:text-primary"
-              } ${
-                mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
-              }`}
-              style={{ transitionDelay: `${i * 100 + 300}ms` }}
-              href={link.href}
-              onClick={closeMobile}
-            >
-              {link.label}
-            </a>
-          ))}
           {pageLinks.map((link, i) => (
             <a
               key={link.href}
@@ -179,7 +111,7 @@ export function Header() {
               } ${
                 mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
               }`}
-              style={{ transitionDelay: `${(anchorLinks.length + i) * 100 + 300}ms` }}
+              style={{ transitionDelay: `${i * 100 + 300}ms` }}
               href={link.href}
               onClick={closeMobile}
             >

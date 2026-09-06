@@ -1,12 +1,5 @@
 import { test, expect } from "@playwright/test";
 
-const homeAnchors = [
-  { label: "Experiencia", hash: "experiencia" },
-  { label: "Galería", hash: "galeria" },
-  { label: "Chef", hash: "chef" },
-  { label: "Eventos", hash: "eventos" },
-];
-
 const pageLinks = [
   { label: "Menú", path: "/menu" },
   { label: "Contacto", path: "/contacto" },
@@ -50,15 +43,6 @@ test.describe("Home (one-page) — estructura", () => {
 test.describe("Navegación (Desktop)", () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
-  for (const { label, hash } of homeAnchors) {
-    test(`el botón "${label}" lleva al ancla #${hash}`, async ({ page }) => {
-      await page.goto("/");
-      await page.locator('header a', { hasText: label }).first().click();
-      await expect(page).toHaveURL(new RegExp(`/\\#${hash}$`));
-      await expect(page.locator(`#${hash}`)).toBeInViewport({ timeout: 10000 });
-    });
-  }
-
   for (const { label, path } of pageLinks) {
     test(`el botón "${label}" lleva a la página ${path}`, async ({ page }) => {
       await page.goto("/");
@@ -74,10 +58,10 @@ test.describe("Navegación (Desktop)", () => {
     await expect(page).toHaveURL(/\/reservar$/);
   });
 
-  test("scrollspy resalta la sección activa", async ({ page }) => {
+  test("la barra no muestra botones a secciones de la home", async ({ page }) => {
     await page.goto("/");
-    await page.locator("#galeria").scrollIntoViewIfNeeded();
-    await expect(page.locator('header a[href="#galeria"]').first()).toHaveAttribute("aria-current", "true", { timeout: 10000 });
+    const anchorNav = page.locator('header a[href^="#"]');
+    await expect(anchorNav).toHaveCount(0);
   });
 });
 
@@ -238,19 +222,11 @@ test.describe("Menú Hamburguesa (Mobile)", () => {
     await expect(burger).toBeVisible();
 
     await burger.click();
-    await expect(page.locator('header a', { hasText: "Experiencia" }).last()).toBeVisible();
+    await expect(page.locator('header a', { hasText: "Menú" }).last()).toBeVisible();
 
     await page.locator('header button[aria-label="Cerrar menú"]').click();
     await page.waitForTimeout(400);
-    await expect(page.locator('header a', { hasText: "Experiencia" }).last()).toBeHidden();
-  });
-
-  test("navegar a un ancla desde el menú móvil lo cierra", async ({ page }) => {
-    await page.goto("/");
-    await page.locator('header button[aria-label="Abrir menú"]').click();
-    await page.locator('header a', { hasText: "Galería" }).last().click();
-    await expect(page).toHaveURL(/\/\#galeria$/);
-    await expect(page.locator('header a', { hasText: "Experiencia" }).last()).toBeHidden({ timeout: 10000 });
+    await expect(page.locator('header a', { hasText: "Menú" }).last()).toBeHidden();
   });
 
   test("navegar a una página desde el menú móvil lo cierra", async ({ page }) => {
@@ -258,7 +234,7 @@ test.describe("Menú Hamburguesa (Mobile)", () => {
     await page.locator('header button[aria-label="Abrir menú"]').click();
     await page.locator('header a', { hasText: "Menú" }).last().click();
     await expect(page).toHaveURL(/\/menu$/);
-    await expect(page.locator('header a', { hasText: "Experiencia" }).last()).toBeHidden({ timeout: 10000 });
+    await expect(page.locator('header a', { hasText: "Menú" }).last()).toBeHidden({ timeout: 10000 });
   });
 
   test("el CTA Reservar del menú móvil lleva a /reservar", async ({ page }) => {
