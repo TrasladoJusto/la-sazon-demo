@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function ReservasPage() {
-  redirect("/#reservas");
+  redirect("/reservar");
 }

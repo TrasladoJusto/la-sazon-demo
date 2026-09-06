@@ -70,7 +70,7 @@ export function EventsSection() {
                   <span className="material-symbols-outlined text-[16px] text-primary" aria-hidden="true">check</span>
                   {event.includes}
                 </p>
-                <a href="#contacto" className="inline-block mt-3 font-label-sm text-label-sm text-primary uppercase tracking-widest hover:text-primary-fixed transition-colors border-b border-primary/30 hover:border-primary pb-1">
+                <a href="/contacto" className="inline-block mt-3 font-label-sm text-label-sm text-primary uppercase tracking-widest hover:text-primary-fixed transition-colors border-b border-primary/30 hover:border-primary pb-1">
                   Solicitar propuesta
                 </a>
               </div>

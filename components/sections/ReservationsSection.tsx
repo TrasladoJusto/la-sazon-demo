@@ -31,7 +31,8 @@ export function ReservationsSection() {
           <ReservationForm />
 
           <p className="text-center text-on-surface-variant font-label-sm opacity-60">
-            Para eventos privados de más de 12 personas, contáctenos en la sección Contacto.
+            Para eventos privados de más de 12 personas, contáctenos{" "}
+            <a href="/contacto" className="text-primary hover:underline">en nuestra página de contacto</a>.
           </p>
         </div>
       </div>

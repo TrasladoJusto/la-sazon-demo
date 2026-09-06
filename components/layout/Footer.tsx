@@ -5,7 +5,7 @@ export function Footer() {
       links: [
         { label: "Inicio", href: "/" },
         { label: "Experiencia", href: "/#experiencia" },
-        { label: "La Carta", href: "/#menu" },
+        { label: "La Carta", href: "/menu" },
         { label: "El Chef", href: "/#chef" },
       ],
     },
@@ -14,8 +14,8 @@ export function Footer() {
       links: [
         { label: "Galería", href: "/#galeria" },
         { label: "Eventos", href: "/#eventos" },
-        { label: "Reservar Mesa", href: "/#reservas" },
-        { label: "Contacto", href: "/#contacto" },
+        { label: "Reservar Mesa", href: "/reservar" },
+        { label: "Contacto", href: "/contacto" },
       ],
     },
   ];

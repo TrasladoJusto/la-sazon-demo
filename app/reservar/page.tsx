@@ -1,4 +1,7 @@
-import { redirect } from "next/navigation";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { PageHero } from "@/components/layout/PageHero";
+import { ReservationsSection } from "@/components/sections/ReservationsSection";
 
 export const metadata = {
   title: "Reservar Mesa | AURA",
@@ -6,5 +9,18 @@ export const metadata = {
 };
 
 export default function ReservarPage() {
-  redirect("/#reservas");
+  return (
+    <>
+      <Header />
+      <main id="main-content">
+        <PageHero
+          title="Reservas"
+          subtitle="Asegure su lugar en nuestra mesa. Recomendamos realizar su reserva con al menos dos semanas de antelación."
+          image="/images/gallery-table.jpg"
+        />
+        <ReservationsSection />
+      </main>
+      <Footer />
+    </>
+  );
 }

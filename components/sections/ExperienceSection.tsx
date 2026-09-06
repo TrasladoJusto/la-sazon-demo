@@ -67,7 +67,7 @@ export function ExperienceSection() {
             ))}
           </div>
 
-          <a className="inline-block font-label-sm text-label-sm text-primary tracking-[0.2em] uppercase border-b border-primary/30 hover:border-primary pb-2 transition-all" href="#menu">
+          <a className="inline-block font-label-sm text-label-sm text-primary tracking-[0.2em] uppercase border-b border-primary/30 hover:border-primary pb-2 transition-all" href="/menu">
             Descubrir la carta
           </a>
         </div>

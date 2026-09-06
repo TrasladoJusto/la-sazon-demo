@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const SECTION_IDS = ["experiencia", "menu", "chef", "galeria", "eventos", "contacto"];
+const HOME_SECTIONS = ["experiencia", "galeria", "chef", "eventos"];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,21 +11,30 @@ export function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
 
+  // Las páginas internas siempre arrancan con el header sólido (no tienen hero a pantalla completa)
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
-  // Lock scroll when mobile menu is open
+  // Lock scroll cuando el menú móvil está abierto; siempre se libera al cambio de ruta
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "unset";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [mobileOpen]);
 
   // Scrollspy: resalta la sección visible de la home
   useEffect(() => {
     if (!isHome || mobileOpen) return;
-    const sections = SECTION_IDS
+    const sections = HOME_SECTIONS
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
 
@@ -41,16 +50,27 @@ export function Header() {
     return () => observer.disconnect();
   }, [isHome, mobileOpen]);
 
-  const navLinks = [
+  // Anclas de la home + páginas separadas
+  const anchorLinks = [
     { label: "Experiencia", href: "#experiencia" },
-    { label: "Menú", href: "#menu" },
-    { label: "Chef", href: "#chef" },
     { label: "Galería", href: "#galeria" },
+    { label: "Chef", href: "#chef" },
     { label: "Eventos", href: "#eventos" },
-    { label: "Contacto", href: "#contacto" },
+  ];
+  const pageLinks = [
+    { label: "Menú", href: "/menu" },
+    { label: "Contacto", href: "/contacto" },
   ];
 
-  const isActive = (href: string) => activeId === href.slice(1);
+  const isAnchorActive = (href: string) => activeId === href.slice(1);
+  const isPageActive = (href: string) => pathname === href;
+
+  const navLinks = [
+    ...anchorLinks.map((l) => ({ ...l, active: isAnchorActive(l.href) })),
+    ...pageLinks.map((l) => ({ ...l, active: isPageActive(l.href) })),
+  ];
+
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <header
@@ -61,34 +81,51 @@ export function Header() {
       <nav className="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto relative z-[110]">
         <a
           href="/"
-          onClick={() => setMobileOpen(false)}
+          onClick={closeMobile}
           className="font-headline-md text-headline-md tracking-[0.3em] text-primary cursor-pointer hover:opacity-80 transition-opacity"
         >
           AURA
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex gap-8 xl:gap-10 items-center">
-          {navLinks.map((link) => (
+        <div className="hidden lg:flex gap-7 xl:gap-9 items-center">
+          {anchorLinks.map((link) => (
             <a
-              key={link.label}
+              key={link.href}
               className={`font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all duration-300 relative group ${
-                isActive(link.href) ? "text-primary" : "text-on-surface/80 hover:text-primary"
+                isAnchorActive(link.href) ? "text-primary" : "text-on-surface/80 hover:text-primary"
               }`}
               href={link.href}
-              aria-current={isActive(link.href) ? "true" : undefined}
+              aria-current={isAnchorActive(link.href) ? "true" : undefined}
             >
               {link.label}
               <span
                 className={`absolute -bottom-1 left-0 h-[1px] bg-primary transition-all duration-300 ${
-                  isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                  isAnchorActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
+            </a>
+          ))}
+          {pageLinks.map((link) => (
+            <a
+              key={link.href}
+              className={`font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all duration-300 relative group ${
+                isPageActive(link.href) ? "text-primary" : "text-on-surface/80 hover:text-primary"
+              }`}
+              href={link.href}
+              aria-current={isPageActive(link.href) ? "page" : undefined}
+            >
+              {link.label}
+              <span
+                className={`absolute -bottom-1 left-0 h-[1px] bg-primary transition-all duration-300 ${
+                  isPageActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
                 }`}
               />
             </a>
           ))}
           <a
             className="bg-primary hover:bg-primary-container text-background-dark px-8 py-3 font-label-sm text-label-sm uppercase tracking-[0.2em] font-bold transition-all duration-500 shadow-lg shadow-primary/10"
-            href="#reservas"
+            href="/reservar"
           >
             Reservar
           </a>
@@ -118,18 +155,33 @@ export function Header() {
           <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary/5 rounded-full blur-[100px]" />
         </div>
 
-        <div className="flex flex-col gap-7 relative z-[91]">
-          {navLinks.map((link, i) => (
+        <div className="flex flex-col gap-6 relative z-[91]">
+          {anchorLinks.map((link, i) => (
             <a
-              key={link.label}
+              key={link.href}
               className={`font-display-lg-mobile text-[36px] uppercase tracking-widest transition-all duration-500 transform ${
-                isActive(link.href) ? "text-primary" : "text-on-surface hover:text-primary"
+                isAnchorActive(link.href) ? "text-primary" : "text-on-surface hover:text-primary"
               } ${
                 mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
               }`}
               style={{ transitionDelay: `${i * 100 + 300}ms` }}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobile}
+            >
+              {link.label}
+            </a>
+          ))}
+          {pageLinks.map((link, i) => (
+            <a
+              key={link.href}
+              className={`font-display-lg-mobile text-[36px] uppercase tracking-widest transition-all duration-500 transform ${
+                isPageActive(link.href) ? "text-primary" : "text-on-surface hover:text-primary"
+              } ${
+                mobileOpen ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+              }`}
+              style={{ transitionDelay: `${(anchorLinks.length + i) * 100 + 300}ms` }}
+              href={link.href}
+              onClick={closeMobile}
             >
               {link.label}
             </a>
@@ -141,8 +193,8 @@ export function Header() {
           >
             <a
               className="inline-block bg-primary text-background-dark px-12 py-5 font-label-md text-label-md uppercase tracking-[0.2em] font-bold shadow-2xl shadow-primary/20 active:scale-95 transition-all"
-              href="#reservas"
-              onClick={() => setMobileOpen(false)}
+              href="/reservar"
+              onClick={closeMobile}
             >
               Reservar Mesa
             </a>

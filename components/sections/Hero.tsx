@@ -34,7 +34,7 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-up [animation-delay:800ms] opacity-0 fill-mode-forwards">
           <a
             className="bg-primary px-12 py-5 text-background-dark font-label-md text-label-md tracking-[0.2em] uppercase font-bold hover:bg-primary-container hover:scale-105 transition-all duration-500 shadow-2xl shadow-primary/20"
-            href="/#reservas"
+            href="/reservar"
           >
             Reservar mesa
           </a>
