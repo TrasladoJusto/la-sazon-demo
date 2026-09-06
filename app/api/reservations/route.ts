@@ -1,31 +1,32 @@
 import { NextResponse } from "next/server";
-import { z } from "zod";
-
-const reservationSchema = z.object({
-  name: z.string().min(3, "Nombre mínimo de 3 caracteres.").max(60),
-  email: z.string().email("Correo electrónico no válido."),
-  date: z.string().min(1, "Selecciona una fecha."),
-  guests: z.enum(["2", "4", "6", "10"], { message: "Selecciona el número de comensales." }),
-});
+import { reservationSchema, type ReservationInput } from "@/lib/validation";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const parsed = reservationSchema.safeParse(body);
+    const result = reservationSchema.safeParse(body);
 
-    if (!parsed.success) {
-      return NextResponse.json(
-        { error: "Validación fallida.", issues: parsed.error.flatten().fieldErrors },
-        { status: 400 }
-      );
+    if (!result.success) {
+      const issues = result.error.issues.map((issue) => ({
+        path: issue.path[0] ?? "form",
+        message: issue.message,
+      }));
+      return NextResponse.json({ error: "Datos inválidos.", issues }, { status: 400 });
     }
 
-    const { name, email, date, guests } = parsed.data;
+    const reservation: ReservationInput = result.data;
+    console.log("Nueva reserva:", {
+      cliente: reservation.name,
+      email: reservation.email,
+      telefono: reservation.phone || "—",
+      fecha: reservation.date,
+      hora: reservation.time || "—",
+      comensales: reservation.guests,
+      ocasion: reservation.occasion || "—",
+      preferencias: reservation.preferences || "—",
+    });
 
-    // Log reservation (in production, save to database)
-    console.log("New reservation:", { name, email, date, guests });
-
-    // Simulate sending email via Resend
+    // Simulación de envío (Resend/Email API en producción)
     // await resend.emails.send({...});
 
     return NextResponse.json(
@@ -36,8 +37,4 @@ export async function POST(request: Request) {
     console.error("Reservation error:", error);
     return NextResponse.json({ error: "Error al procesar la reserva" }, { status: 500 });
   }
-}
-
-export async function GET() {
-  return NextResponse.json({ reservations: [] });
 }

@@ -66,7 +66,7 @@ export function ChefEnhanced() {
              </p>
               <cite className="block mt-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest not-italic">— Adrián Castillo</cite>
            </blockquote>
-            <Button variant="primary" size="lg" href="/menu">Ver su trayectoria</Button>
+            <Button variant="primary" size="lg" href="/experiencia">Conocer su cocina</Button>
          </div>
        </div>
      </section>

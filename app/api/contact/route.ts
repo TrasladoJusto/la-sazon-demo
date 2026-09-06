@@ -1,20 +1,23 @@
 import { NextResponse } from "next/server";
+import { contactSchema } from "@/lib/validation";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const result = contactSchema.safeParse(body);
 
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: "Campos requeridos: name, email, message" },
-        { status: 400 }
-      );
+    if (!result.success) {
+      const issues = result.error.issues.map((issue) => ({
+        path: issue.path[0] ?? "form",
+        message: issue.message,
+      }));
+      return NextResponse.json({ error: "Datos inválidos.", issues }, { status: 400 });
     }
 
-    console.log("New contact message:", { name, email, subject, message });
+    const { name, email, subject, message } = result.data;
+    console.log("Nuevo mensaje de contacto:", { name, email, subject: subject || "—", message });
 
-    // Simulate sending email via Resend
+    // Simular envío de email vía Resend
     // await resend.emails.send({...});
 
     return NextResponse.json(

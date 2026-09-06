@@ -32,9 +32,9 @@ export function EventsSection() {
             <span className="material-symbols-outlined text-primary text-[40px]" aria-hidden="true">{event.icon}</span>
             <h3 className="font-headline-md text-headline-md text-primary">{event.title}</h3>
             <p className="font-body-md text-body-md text-on-surface-variant">{event.desc}</p>
-            <button className="font-label-sm text-label-sm text-primary uppercase tracking-widest hover:text-primary-fixed transition-colors border-b border-primary/30 hover:border-primary pb-1">
+            <a href="/contacto" className="inline-block font-label-sm text-label-sm text-primary uppercase tracking-widest hover:text-primary-fixed transition-colors border-b border-primary/30 hover:border-primary pb-1">
               Solicitar
-            </button>
+            </a>
           </div>
         ))}
       </div>
