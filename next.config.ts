@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     serverActions: {
-      allowedOrigins: ["provenance-restaurant.com", "localhost:3000"],
+      allowedOrigins: ["aura-restaurant.com", "localhost:3000"],
     },
   },
   async headers() {

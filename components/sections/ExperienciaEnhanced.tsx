@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 const features = [
@@ -39,12 +40,12 @@ export function ExperienciaEnhanced() {
       {/* Hero Split-Screen */}
       <section className="relative grid grid-cols-1 md:grid-cols-2 min-h-[90vh]" id="experiencia">
         <div className="reveal-on-scroll relative h-[400px] md:h-auto overflow-hidden">
-          <img
+          <Image
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             src="/images/chef-action.jpg"
-            alt="Cinematic kitchen shot"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
-            data-icon="photo_camera"
-            data-alt="Cinematic kitchen shot"
+            alt="Cocina cinemática en acción"
+            className="object-cover transition-transform duration-1000 hover:scale-105"
           />
           <div className="absolute inset-0 bg-background-dark/20" />
        </div>
@@ -56,7 +57,7 @@ export function ExperienciaEnhanced() {
            </h2>
             <div className="w-20 h-[1px] bg-primary" />
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              En <strong className="text-primary">PROVENANCE</strong>, cada ingrediente cuenta una historia de origen, territorio y respeto. Entendemos el terroir no solo como un origen geográfico, sino como una filosofía que guía cada decisión en nuestra cocina.
+              En <strong className="text-primary">AURA</strong>, cada ingrediente cuenta una historia de origen, territorio y respeto. Entendemos el terroir no solo como un origen geográfico, sino como una filosofía que guía cada decisión en nuestra cocina.
            </p>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
               Nuestra cocina es un ejercicio de contención y elegancia, donde el exceso se sacrifica en favor de la pureza del sabor y la trazabilidad impecable del producto.

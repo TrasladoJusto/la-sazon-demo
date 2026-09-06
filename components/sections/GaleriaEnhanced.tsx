@@ -78,7 +78,7 @@ export function GaleriaEnhanced() {
           const span = spanPattern[idx % spanPattern.length] || "";
           return (
             <button
-              key={img.src}
+              key={realIdx}
               className={`relative group overflow-hidden cursor-zoom-in bg-surface-container ${span}`}
               onClick={() => setLightboxIdx(realIdx)}
               data-category={img.category}

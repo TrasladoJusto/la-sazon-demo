@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Tabs } from "@/components/ui/Tabs";
 import { Button } from "@/components/ui/Button";
 
@@ -59,12 +60,13 @@ function DishCard({ dish, index }: { dish: Dish; index: number }) {
       data-category={dish.category}
     >
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img
+        <Image
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           src={dish.src}
           alt={dish.name}
-          className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 card-zoom-image transition-all duration-700"
-          data-icon="restaurant"
-          data-alt={dish.name}
+          className="object-cover grayscale-[30%] group-hover:grayscale-0 card-zoom-image transition-all duration-700"
+          loading={index < 3 ? "eager" : "lazy"}
         />
         <div className="menu-card-overlay" />
         <div className={`absolute top-4 left-4 ${badgeColor} px-3 py-1 font-label-sm text-label-sm uppercase tracking-widest`}>

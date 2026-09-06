@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { FullMenu } from "@/components/sections/FullMenu";
 
 export const metadata = {
-  title: "Nuestra Carta | PROVENANCE",
+  title: "Nuestra Carta | AURA",
   description: "Una odisea culinaria donde el origen dicta el destino. Degustación, Carta y Maridaje.",
 };
 

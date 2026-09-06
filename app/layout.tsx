@@ -7,22 +7,22 @@ const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-bod
 const libreCaslon = Libre_Caslon_Text({ subsets: ["latin"], display: "swap", variable: "--font-display", weight: ["400", "700"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://provenance-restaurant.com"),
-  title: "PROVENANCE | Alta Cocina de Origen",
+  metadataBase: new URL("https://aura-restaurant.com"),
+  title: "AURA | Alta Cocina de Origen",
   description: "Donde el origen define la excelencia. Alta cocina de origen en Madrid.",
   keywords: ["fine dining", "alta cocina", "tasting menu", "wine pairing", "Madrid"],
-  authors: [{ name: "PROVENANCE Restaurant" }],
-  creator: "PROVENANCE",
-  publisher: "PROVENANCE",
+  authors: [{ name: "AURA Restaurant" }],
+  creator: "AURA",
+  publisher: "AURA",
   robots: { index: true, follow: true },
   openGraph: {
     type: "website", locale: "es_ES",
-    url: "https://provenance-restaurant.com", siteName: "PROVENANCE",
-    title: "PROVENANCE | Alta Cocina de Origen",
+    url: "https://aura-restaurant.com", siteName: "AURA",
+    title: "AURA | Alta Cocina de Origen",
     description: "Donde el origen define la excelencia.",
     images: [{ url: "/images/interior.jpg", width: 1280, height: 720 }],
   },
-  twitter: { card: "summary_large_image", title: "PROVENANCE | Alta Cocina de Origen", description: "Donde el origen define la excelencia." },
+  twitter: { card: "summary_large_image", title: "AURA | Alta Cocina de Origen", description: "Donde el origen define la excelencia." },
   icons: { icon: "/favicon.ico" },
 };
 

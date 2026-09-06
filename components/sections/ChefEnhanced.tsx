@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 function Stat({ value, label }: { value: string; label: string }) {
@@ -39,12 +40,12 @@ export function ChefEnhanced() {
           <div className="reveal-on-scroll md:col-span-3 relative">
             <div className="relative h-[700px] overflow-hidden group">
               <div className="absolute inset-0 border-2 border-primary/20 translate-x-3 translate-y-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:translate-y-1" />
-              <img
+              <Image
+                fill
+                sizes="(max-width: 768px) 100vw, 60vw"
                 src="/images/chef-portrait.jpg"
                 alt="Chef Adrián Castillo"
-                className="absolute inset-0 w-full h-full object-cover grayscale-[20%] hover:grayscale-0 hover:scale-105 transition-all duration-1000"
-                data-icon="person"
-                data-alt="Chef Adrián Castillo portrait"
+                className="object-cover grayscale-[20%] hover:grayscale-0 hover:scale-105 transition-all duration-1000"
               />
            </div>
          </div>
@@ -54,7 +55,7 @@ export function ChefEnhanced() {
             <h2 className="font-headline-lg text-headline-lg text-on-surface">El Chef</h2>
             <div className="w-20 h-[1px] bg-primary" />
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Formado en las cocinas más prestigiosas del mundo, <strong className="text-primary">Adrián Castillo</strong> regresa a sus raíces para liderar <em className="text-primary not-italic">PROVENANCE</em>. Su cocina es un ejercicio de contención y elegancia, donde el exceso se sacrifica en favor de la pureza del sabor.
+              Formado en las cocinas más prestigiosas del mundo, <strong className="text-primary">Adrián Castillo</strong> regresa a sus raíces para liderar <em className="text-primary not-italic">AURA</em>. Su cocina es un ejercicio de contención y elegancia, donde el exceso se sacrifica en favor de la pureza del sabor.
            </p>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
               Su filosofía se basa en el respeto absoluto al producto de temporada, elevándolo mediante técnicas clásicas y una visión contemporánea que honra el terroir.
@@ -87,7 +88,7 @@ export function ChefEnhanced() {
           <div className="pv-watermark" aria-hidden="true">12</div>
           <div className="relative z-10">
             <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Menú Degustación Signature</span>
-            <h3 className="font-display-lg-mobile md:font-headline-lg text-display-lg-mobile md:text-headline-lg text-on-surface mt-4">Travesía Provenance</h3>
+            <h3 className="font-display-lg-mobile md:font-headline-lg text-display-lg-mobile md:text-headline-lg text-on-surface mt-4">Travesía Aura</h3>
             <p className="font-body-lg text-body-lg text-on-surface-variant mt-6 mb-8 leading-relaxed">
               Doce pasos que recorren nuestra filosofía, nuestros productores y la evolución de nuestra cocina a lo largo del año. Una experiencia inmersiva de aproximadamente tres horas.
            </p>

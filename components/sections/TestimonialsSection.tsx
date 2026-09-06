@@ -5,7 +5,9 @@ export function TestimonialsSection() {
         <span className="material-symbols-outlined text-primary text-[64px] mb-8" aria-hidden="true">format_quote</span>
         <div className="relative">
           <div className="space-y-8">
-            <p className="font-display-lg-mobile text-display-lg-mobile text-on-surface leading-snug">&ldquo;Una oda al producto. Provenance no solo cocina, rinde culto a lo que nos da la tierra con una elegancia técnica abrumadora.&rdquo;</p>
+            <p className="font-display-lg-mobile text-display-lg-mobile text-on-surface leading-snug italic">
+              &ldquo;Una celebración del origen convertido en arte comestible. Cada ingrediente es elegido con una meticuliosidad casi religiosa, y cada plato se sirve como una obra que trasciende el tiempo.&rdquo;
+            </p>
             <p className="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">&mdash; Guía Michelin 2024</p>
           </div>
         </div>

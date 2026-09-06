@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { GaleriaEnhanced } from "@/components/sections/GaleriaEnhanced";
 
 export const metadata = {
-  title: "Galería | PROVENANCE",
+  title: "Galería | AURA",
   description: "Un recorrido visual por nuestra herencia culinaria. Sala, platos, detalles, bodega y ambiente.",
 };
 

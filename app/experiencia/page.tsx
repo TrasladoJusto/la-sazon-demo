@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { ExperienciaEnhanced } from "@/components/sections/ExperienciaEnhanced";
 
 export const metadata = {
-  title: "Experiencia | PROVENANCE",
+  title: "Experiencia | AURA",
   description: "Una experiencia gastronómica completa: curaduría, archivo, técnica vanguardista y atmósfera.",
 };
 

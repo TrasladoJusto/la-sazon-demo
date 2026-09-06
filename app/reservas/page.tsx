@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Reservas | PROVENANCE",
+  title: "Reservas | AURA",
 };
 
 export default function ReservasPage() {

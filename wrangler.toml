@@ -1,4 +1,4 @@
-name = "provenance-restaurant"
+name = "aura-restaurant"
 main = "dist/worker.js"
 compatibility_date = "2024-01-01"
 
@@ -6,5 +6,5 @@ compatibility_date = "2024-01-01"
 command = "npm run build"
 
 [[routes]]
-pattern = "provenance-restaurant.asahel.workers.dev/*"
+pattern = "aura-restaurant.asahel.workers.dev/*"
 zone_id = ""

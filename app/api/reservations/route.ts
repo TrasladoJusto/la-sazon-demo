@@ -1,19 +1,29 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
+
+const reservationSchema = z.object({
+  name: z.string().min(3, "Nombre mínimo de 3 caracteres.").max(60),
+  email: z.string().email("Correo electrónico no válido."),
+  date: z.string().min(1, "Selecciona una fecha."),
+  guests: z.enum(["2", "4", "6", "10"], { message: "Selecciona el número de comensales." }),
+});
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, date, time, guests, message } = body;
+    const parsed = reservationSchema.safeParse(body);
 
-    if (!name || !email || !date || !time) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { error: "Campos requeridos: name, email, date, time" },
+        { error: "Validación fallida.", issues: parsed.error.flatten().fieldErrors },
         { status: 400 }
       );
     }
 
+    const { name, email, date, guests } = parsed.data;
+
     // Log reservation (in production, save to database)
-    console.log("New reservation:", { name, email, phone, date, time, guests, message });
+    console.log("New reservation:", { name, email, date, guests });
 
     // Simulate sending email via Resend
     // await resend.emails.send({...});

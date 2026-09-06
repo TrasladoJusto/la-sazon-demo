@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 const eventTypes = [
@@ -44,12 +45,12 @@ function BentoCard({ event, index }: { event: typeof eventTypes[0]; index: numbe
       className="card-reveal group relative overflow-hidden border border-outline/10 hover:border-primary/40 transition-all duration-500 bg-surface-container-low"
     >
       <div className="relative h-[280px] overflow-hidden">
-        <img
+        <Image
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
           src={event.image}
           alt={event.title}
-          className="w-full h-full object-cover transition-all duration-700 brightness-110 group-hover:scale-110"
-          data-icon="event"
-          data-alt={event.title}
+          className="object-cover transition-all duration-700 brightness-110 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent" />
     </div>
@@ -67,12 +68,13 @@ export function EventosEnhanced() {
     <>
       {/* Hero */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden" id="eventos">
-        <img
+        <Image
+          fill
+          priority
+          sizes="100vw"
           src="/images/interior.jpg"
           alt="Eventos privados"
-          className="absolute inset-0 w-full h-full object-cover"
-          data-icon="celebration"
-          data-alt="Event venue interior"
+          className="object-cover"
         />
         <div className="absolute inset-0 hero-gradient" />
         <div className="relative z-10 text-center px-margin-mobile">
@@ -98,7 +100,7 @@ export function EventosEnhanced() {
         <div className="max-w-4xl mx-auto px-margin-mobile text-center reveal-on-scroll">
           <span className="material-symbols-outlined text-primary text-[80px] mb-6 opacity-40" data-icon="format_quote">format_quote</span>
           <blockquote className="font-headline-md text-headline-md text-on-surface italic font-serif leading-relaxed">
-            "La elegancia es la única belleza que nunca se marchita, y en Provenance, cada evento es una obra de arte efímera."
+            "La elegancia es la única belleza que nunca se marchita, y en Aura, cada evento es una obra de arte efímera."
         </blockquote>
           <cite className="block mt-6 font-label-sm text-label-sm text-primary uppercase tracking-[0.3em] not-italic">— Dirección Creativa</cite>
       </div>
@@ -112,8 +114,8 @@ export function EventosEnhanced() {
             Cada detalle importa. Le acompañamos en el diseño de una experiencia completamente personalizada.
         </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <a className="font-body-lg text-body-lg text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors" href="mailto:eventos@provenance.com">
-              eventos@provenance.com
+            <a className="font-body-lg text-body-lg text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors" href="mailto:eventos@aura.com">
+              eventos@aura.com
           </a>
             <span className="hidden md:inline text-outline-variant">|</span>
             <a className="font-body-lg text-body-lg text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors" href="tel:+34912345678">

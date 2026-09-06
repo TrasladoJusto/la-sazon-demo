@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { EventosEnhanced } from "@/components/sections/EventosEnhanced";
 
 export const metadata = {
-  title: "Eventos Privados | PROVENANCE",
+  title: "Eventos Privados | AURA",
   description: "Cenas privadas, eventos corporativos, buyout completo y experiencias a medida.",
 };
 

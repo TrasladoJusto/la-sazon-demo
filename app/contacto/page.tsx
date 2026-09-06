@@ -5,7 +5,7 @@ import { LocationSection } from "@/components/sections/LocationSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 export const metadata = {
-  title: "Contacto | PROVENANCE",
+  title: "Contacto | AURA",
   description: "Visítanos en Calle de la Memoria, 12. Madrid. Horarios, contacto y ubicación.",
 };
 

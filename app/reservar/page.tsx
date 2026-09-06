@@ -4,8 +4,8 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { ReservationForm } from "@/components/sections/ReservationForm";
 
 export const metadata = {
-  title: "Reservar Mesa | PROVENANCE",
-  description: "Reserve su mesa en PROVENANCE. Le responderemos en 15 minutos.",
+  title: "Reservar Mesa | AURA",
+  description: "Reserve su mesa en AURA. Le responderemos en 15 minutos.",
 };
 
 export default function ReservarPage() {

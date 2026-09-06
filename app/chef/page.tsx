@@ -4,8 +4,8 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { ChefEnhanced } from "@/components/sections/ChefEnhanced";
 
 export const metadata = {
-  title: "El Chef | PROVENANCE",
-  description: "Adrián Castillo - Chef ejecutivo de PROVENANCE. 3 Estrellas Michelin, 15 años de maestría.",
+  title: "El Chef | AURA",
+  description: "Adrián Castillo - Chef ejecutivo de AURA. 3 Estrellas Michelin, 15 años de maestría.",
 };
 
 export default function ChefPage() {
