@@ -57,7 +57,7 @@ export function ExperienciaEnhanced() {
            </h2>
             <div className="w-20 h-[1px] bg-primary" />
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              En <strong className="text-primary">AURA</strong>, cada ingrediente cuenta una historia de origen, territorio y respeto. Entendemos el terroir no solo como un origen geográfico, sino como una filosofía que guía cada decisión en nuestra cocina.
+              En <strong className="text-primary">La Sazón</strong>, cada ingrediente cuenta una historia de origen, territorio y respeto. Entendemos el terroir no solo como un origen geográfico, sino como una filosofía que guía cada decisión en nuestra cocina.
            </p>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
               Nuestra cocina es un ejercicio de contención y elegancia, donde el exceso se sacrifica en favor de la pureza del sabor y la trazabilidad impecable del producto.

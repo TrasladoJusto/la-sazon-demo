@@ -21,17 +21,17 @@ export function LocationSection() {
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover"
                   src="/images/map-location.jpg"
-                  alt="Mapa de Madrid"
+                  alt="Mapa de Lima"
                   loading="lazy"
                 />
               </div>
               <div className="absolute inset-0 pointer-events-none border border-primary/10" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                 <span className="material-symbols-outlined text-primary text-[48px] animate-pulse block" aria-hidden="true">location_on</span>
-                <p className="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mt-2">Calle de la Memoria, 12</p>
+                <p className="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mt-2">Calle Ejemplo, 123</p>
               </div>
               <a
-                href="https://maps.google.com/?q=Calle+de+la+Memoria+12,+28013+Madrid"
+                href="https://maps.google.com/?q=Calle+Ejemplo+123,+Lima,+Perú"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-4 right-4 bg-primary text-background-dark px-5 py-3 font-label-sm text-label-sm uppercase tracking-widest font-bold hover:bg-primary-container transition-all inline-flex items-center gap-2"
@@ -53,17 +53,17 @@ export function LocationSection() {
               <div className="border border-outline-variant/10 p-6 space-y-2 min-w-0">
                 <p className="font-label-sm text-label-sm text-primary uppercase tracking-widest">Contacto</p>
                 <div className="space-y-2 min-w-0">
-                  <a href="tel:+34912345678" className="flex items-center gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors">
+                  <a href="tel:+51900000000" className="flex items-center gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors">
                     <span className="material-symbols-outlined text-[18px] text-primary shrink-0" aria-hidden="true">call</span>
-                    +34 912 345 678
+                    +51 900 000 000
                   </a>
-                  <a href="mailto:reservas@aura-restaurant.com" className="flex items-start gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors min-w-0 break-all">
+                  <a href="mailto:reservas@la-sazon-demo.com" className="flex items-start gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors min-w-0 break-all">
                     <span className="material-symbols-outlined text-[18px] text-primary shrink-0" aria-hidden="true">mail</span>
-                    reservas@aura-restaurant.com
+                    reservas@la-sazon-demo.com
                   </a>
-                  <a href="https://instagram.com/aura.restaurant" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors min-w-0">
+                  <a href="https://instagram.com/example" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-on-surface-variant font-body-md hover:text-primary transition-colors min-w-0">
                     <span className="material-symbols-outlined text-[18px] text-primary shrink-0" aria-hidden="true">public</span>
-                    @aura.restaurant
+                    @example
                   </a>
                 </div>
               </div>

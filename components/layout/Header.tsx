@@ -54,7 +54,7 @@ export function Header() {
           onClick={closeMobile}
           className="font-headline-md text-headline-md tracking-[0.3em] text-primary cursor-pointer hover:opacity-80 transition-opacity"
         >
-          AURA
+          La Sazón
         </a>
 
         {/* Desktop Nav */}
@@ -142,8 +142,8 @@ export function Header() {
                   Reservar Mesa
                 </a>
                 <div className="mt-12 flex gap-6">
-                  <a href="https://instagram.com/aura.restaurant" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary font-label-sm uppercase tracking-widest transition-colors">Instagram</a>
-                  <a href="https://facebook.com/aurarestaurant" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary font-label-sm uppercase tracking-widest transition-colors">Facebook</a>
+                  <a href="https://instagram.com/example" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary font-label-sm uppercase tracking-widest transition-colors">Instagram</a>
+                  <a href="https://facebook.com/example" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary font-label-sm uppercase tracking-widest transition-colors">Facebook</a>
                 </div>
               </div>
             </div>

@@ -4,8 +4,8 @@ import { PageHero } from "@/components/layout/PageHero";
 import { ReservationsSection } from "@/components/sections/ReservationsSection";
 
 export const metadata = {
-  title: "Reservar Mesa | AURA",
-  description: "Reserve su mesa en AURA. Le responderemos en 15 minutos.",
+  title: "Reservar Mesa | La Sazón",
+  description: "Reserve su mesa en La Sazón. Le responderemos en 15 minutos.",
 };
 
 export default function ReservarPage() {

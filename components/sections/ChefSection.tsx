@@ -7,11 +7,11 @@ export function ChefSection() {
         <div className="flex-1 reveal space-y-8">
           <div className="space-y-4">
             <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Chef Ejecutivo</span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface">Adrián Castillo</h2>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface">Chef Ejemplo</h2>
             <div className="w-20 h-[1px] bg-primary" />
           </div>
           <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-xl">
-            Formado en las cocinas más prestigiosas de Francia y con una década y media de trayectoria a sus espaldas, Adrián regresó a sus raíces para fundar AURA. Su cocina es un ejercicio de contención: el exceso se sacrifica en favor de la pureza del sabor.
+            Formado en las cocinas más prestigiosas de Francia y con una década y media de trayectoria a sus espaldas, Chef regresó a sus raíces para fundar La Sazón. Su cocina es un ejercicio de contención: el exceso se sacrifica en favor de la pureza del sabor.
           </p>
           <blockquote className="pl-5 border-l-2 border-primary">
             <p className="font-headline-md italic text-primary/90 font-serif leading-relaxed">
@@ -21,7 +21,7 @@ export function ChefSection() {
           <div className="grid grid-cols-3 gap-2 md:gap-6 max-w-xl">
             <div className="text-center min-w-0">
               <span className="font-headline-lg text-display-lg text-primary block">3</span>
-              <span className="font-label-sm text-label-sm text-secondary uppercase break-words block">Estrellas Michelin</span>
+              <span className="font-label-sm text-label-sm text-secondary uppercase break-words block">Estrellas Gastronómicas</span>
             </div>
             <div className="text-center border-x border-outline-variant/20 min-w-0">
               <span className="font-headline-lg text-display-lg text-primary block">15</span>
@@ -42,12 +42,12 @@ export function ChefSection() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="grayscale hover:grayscale-0 transition-all duration-1000 object-cover"
                 src="/images/chef-portrait.jpg"
-                alt="Chef Adrián Castillo"
+                alt="Chef Chef Ejemplo"
                 loading="lazy"
               />
             </div>
             <div className="absolute bottom-0 left-0 right-0 bg-background-dark/70 backdrop-blur px-5 py-4 border-t border-primary/10">
-              <p className="font-label-sm text-label-sm text-on-surface uppercase tracking-widest">Adrián Castillo · Chef Ejecutivo</p>
+              <p className="font-label-sm text-label-sm text-on-surface uppercase tracking-widest">Chef Ejemplo · Chef Ejecutivo</p>
             </div>
           </div>
         </div>

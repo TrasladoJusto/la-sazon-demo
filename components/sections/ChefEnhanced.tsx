@@ -31,7 +31,7 @@ export function ChefEnhanced() {
       <section className="py-xxl px-margin-desktop max-w-screen-2xl mx-auto" id="chef">
         <div className="text-center mb-16">
           <span className="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">El Visionario</span>
-          <h1 className="font-display-lg text-display-lg text-on-surface mt-6 gold-gradient-text">Adrián Castillo</h1>
+          <h1 className="font-display-lg text-display-lg text-on-surface mt-6 gold-gradient-text">Chef Ejemplo</h1>
           <div className="w-20 h-[1px] bg-primary mx-auto mt-6" />
        </div>
 
@@ -44,7 +44,7 @@ export function ChefEnhanced() {
                 fill
                 sizes="(max-width: 768px) 100vw, 60vw"
                 src="/images/chef-portrait.jpg"
-                alt="Chef Adrián Castillo"
+                alt="Chef Chef Ejemplo"
                 className="object-cover grayscale-[20%] hover:grayscale-0 hover:scale-105 transition-all duration-1000"
               />
            </div>
@@ -55,7 +55,7 @@ export function ChefEnhanced() {
             <h2 className="font-headline-lg text-headline-lg text-on-surface">El Chef</h2>
             <div className="w-20 h-[1px] bg-primary" />
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-              Formado en las cocinas más prestigiosas del mundo, <strong className="text-primary">Adrián Castillo</strong> regresa a sus raíces para liderar <em className="text-primary not-italic">AURA</em>. Su cocina es un ejercicio de contención y elegancia, donde el exceso se sacrifica en favor de la pureza del sabor.
+              Formado en las cocinas más prestigiosas del mundo, <strong className="text-primary">Chef Ejemplo</strong> regresa a sus raíces para liderar <em className="text-primary not-italic">La Sazón</em>. Su cocina es un ejercicio de contención y elegancia, donde el exceso se sacrifica en favor de la pureza del sabor.
            </p>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
               Su filosofía se basa en el respeto absoluto al producto de temporada, elevándolo mediante técnicas clásicas y una visión contemporánea que honra el terroir.
@@ -64,7 +64,7 @@ export function ChefEnhanced() {
               <p className="font-headline-md italic text-primary font-serif leading-relaxed">
                 "La cocina es memoria hecha sabor. No buscamos solo alimentar, buscamos evocar un momento detenido en el tiempo."
              </p>
-              <cite className="block mt-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest not-italic">— Adrián Castillo</cite>
+              <cite className="block mt-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest not-italic">— Chef Ejemplo</cite>
            </blockquote>
             <Button variant="primary" size="lg" href="/experiencia">Conocer su cocina</Button>
          </div>
@@ -75,7 +75,7 @@ export function ChefEnhanced() {
       <section className="py-xxl bg-surface-container-lowest">
         <div className="px-margin-desktop max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            <Stat value="3" label="Estrellas Michelin" />
+            <Stat value="3" label="Estrellas Gastronómicas" />
             <Stat value="15" label="Años de Maestría" />
             <Stat value="40+" label="Micro-productores" />
          </div>

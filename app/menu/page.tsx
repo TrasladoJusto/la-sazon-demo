@@ -5,7 +5,7 @@ import { MenuCarousel } from "@/components/sections/MenuCarousel";
 import { FullMenu } from "@/components/sections/FullMenu";
 
 export const metadata = {
-  title: "Nuestra Carta | AURA",
+  title: "Nuestra Carta | La Sazón",
   description: "Una odisea culinaria donde el origen dicta el destino. Carta, Menú Degustación y Maridaje de autor.",
 };
 

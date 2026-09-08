@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Galería | AURA",
+  title: "Galería | La Sazón",
   description: "Un recorrido visual por nuestra herencia culinaria. Sala, platos, detalles, bodega y ambiente.",
 };
 

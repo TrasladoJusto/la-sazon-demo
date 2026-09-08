@@ -47,7 +47,7 @@ export function ExperienceSection() {
             <div className="w-20 h-[1px] bg-primary" />
           </div>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
-            Entendemos la cocina como un diálogo honesto con la tierra. Cada ingrediente que llega a AURA conserva una trazabilidad completa: del campo al plato, sin intermediarios que diluyan su identidad.
+            Entendemos la cocina como un diálogo honesto con la tierra. Cada ingrediente que llega a La Sazón conserva una trazabilidad completa: del campo al plato, sin intermediarios que diluyan su identidad.
             <br /><br />
             Nuestra filosofía es un ejercicio de contención: el producto de temporada se eleva mediante técnica clásica, nunca se enmascara. Menos interfieren, más sabor verdadero permanece.
           </p>

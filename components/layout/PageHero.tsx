@@ -23,7 +23,7 @@ export function PageHero({ title, subtitle, image, id }: PageHeroProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-background-dark/60 via-transparent to-background-dark/90" />
       </div>
       <div className="relative z-10 px-margin-mobile md:px-margin-desktop max-w-screen-2xl mx-auto w-full pb-16">
-        <p className="font-label-sm text-label-sm text-primary uppercase tracking-[0.4em] mb-4 animate-fade-up">AURA</p>
+        <p className="font-label-sm text-label-sm text-primary uppercase tracking-[0.4em] mb-4 animate-fade-up">La Sazón</p>
         <h1 className="font-display-lg text-headline-lg md:text-display-lg text-on-surface animate-fade-up [animation-delay:150ms] opacity-0 fill-mode-forwards">
           {title}
         </h1>

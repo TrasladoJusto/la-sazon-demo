@@ -3,7 +3,7 @@ import Image from "next/image";
 export function GallerySection() {
   const images = [
     { src: "/images/dish-fine-dining.jpg", alt: "Degustación de temporada: Raíces y Tierra", ratio: "aspect-[3/4]" },
-    { src: "/images/interior.jpg", alt: "Interiorismo minimalista de AURA", ratio: "aspect-[1/1]" },
+    { src: "/images/interior.jpg", alt: "Interiorismo minimalista de La Sazón", ratio: "aspect-[1/1]" },
     { src: "/images/wine-cellar.jpg", alt: "Selección de vinos de autor", ratio: "aspect-[4/5]" },
     { src: "/images/chef-action.jpg", alt: "El equipo en la cocina", ratio: "aspect-[3/4]" },
     { src: "/images/dish-dessert.jpg", alt: "Postre: Interpretación del bosque", ratio: "aspect-[1/1]" },

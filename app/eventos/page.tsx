@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Eventos Privados | AURA",
-  description: "Cenas privadas, eventos corporativos, buyout completo y experiencia a medida en AURA.",
+  title: "Eventos Privados | La Sazón",
+  description: "Cenas privadas, eventos corporativos, buyout completo y experiencia a medida en La Sazón.",
 };
 
 export default function EventosPage() {

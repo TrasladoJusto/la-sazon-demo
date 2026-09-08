@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://aura-restaurant.com/sitemap.xml",
+    sitemap: "https://la-sazon-demo.com/sitemap.xml",
   };
 }

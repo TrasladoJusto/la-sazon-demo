@@ -98,7 +98,7 @@ export function ReservationForm() {
         </div>
         <div className="md:col-span-2">
           <label className={labelClass} htmlFor="telefono">Teléfono</label>
-          <input id="telefono" className={fieldBase} type="tel" placeholder="+34 600 000 000" {...register("phone")} />
+          <input id="telefono" className={fieldBase} type="tel" placeholder="+51 900 000 000" {...register("phone")} />
           {errors.phone && <p role="alert" className="text-error font-label-sm mt-1">{errors.phone.message}</p>}
         </div>
         <div className="md:col-span-2">
@@ -132,7 +132,7 @@ export function ReservationForm() {
           )}
         </button>
         <a
-          href="https://wa.me/34912345678"
+          href="https://wa.me/51900000000"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest py-5 hover:bg-primary hover:text-on-primary transition-all"

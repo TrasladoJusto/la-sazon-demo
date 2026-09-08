@@ -114,12 +114,12 @@ export function EventosEnhanced() {
             Cada detalle importa. Le acompañamos en el diseño de una experiencia completamente personalizada.
         </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <a className="font-body-lg text-body-lg text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors" href="mailto:eventos@aura.com">
-              eventos@aura.com
+            <a className="font-body-lg text-body-lg text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors" href="mailto:eventos@la-sazon-demo.com">
+              eventos@la-sazon-demo.com
           </a>
             <span className="hidden md:inline text-outline-variant">|</span>
-            <a className="font-body-lg text-body-lg text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors" href="tel:+34912345678">
-              +34 912 345 678
+            <a className="font-body-lg text-body-lg text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors" href="tel:+51900000000">
+              +51 900 000 000
           </a>
         </div>
       </div>

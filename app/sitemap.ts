@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://aura-restaurant.com";
+  const base = "https://la-sazon-demo.com";
   const lastModified = new Date();
 
   return [

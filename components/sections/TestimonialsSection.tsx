@@ -5,17 +5,17 @@ const testimonials = [
   {
     quote:
       "Una celebración del origen convertido en arte comestible. Cada ingrediente es elegido con una meticulosidad casi religiosa, y cada plato se sirve como una obra que trasciende el tiempo.",
-    author: "Guía Michelin 2024",
+    author: "Crítica Gastronómica 2024",
   },
   {
     quote:
-      "La mejor mesa de Madrid. El maridaje molecular es impresionante y el servicio anticipa cada deseo antes de que lo expreses.",
-    author: "The World's 50 Best Restaurants",
+      "La mejor mesa de Lima. El maridaje molecular es impresionante y el servicio anticipa cada deseo antes de que lo expreses.",
+    author: "Revista de Cocina 2025",
   },
   {
     quote:
       "Una experiencia sensorial completa: luz, música, aroma y sabor en perfecta armonía. Volveré una y otra vez.",
-    author: "Repsol 2025",
+    author: "Guía Local 2026",
   },
 ];
 
